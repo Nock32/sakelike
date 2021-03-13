@@ -2,32 +2,28 @@
   <div class='nav'>
     <div class='logo'>
       <%= link_to 'SAKE LIKE', "/" %>
-    <div>
+    </div>
     <ul class= 'lists-right'>
       <%# <%if user_signed_in? %>
         <%# <li><%= link_to 'ようこそ', "#", class: "user-nickname" %></li>
         <%# <li><%= link_to 'ログアウト', "#", method: :delete, class: "logout"%> </li>
         <%# <% else %> 
         <li><%= link_to 'ログイン', "#", class: "login" %></li>
-        <li><%= link_to 'サインアップ', "#" , class: "sign-up" %></li>
+        <li><%= link_to 'サインアップ', new_user_registration_path , class: "sign-up" %></li>
       <%# <% end %> 
     </ul>
   </div>
+
+  <div class = 'link-button'>
     <div class='intro'>
       <%= link_to 'お酒の紹介', "/" %>
-    <div>
+    </div>
     <div class='lank'>
       <%= link_to 'ランキング', "/" %>
-    <div>
+    </div>
     <div class='review'>
       <%= link_to '口コミ', "/" %>
-    <div>
-  <div>
-  <form class="search-form" action="#">
-      <input class='input-box' placeholder='キーワードから探す'>
-      <button class="search-button">
-        <%= image_tag "search.png", class:"search-icon" %>
-      </button>
-    </form>
+    </div>
   </div>
+  
 </header>
