@@ -21,13 +21,22 @@
 |--------------------|----------|-----------------|
 |name                |string    |null: false      |
 |explanation         |text      |null: false      |
-|brewer_name         |string    |null: false      |
-|brewer_address      |string    |null: false      |
-|brewer_area id      |integer   |null: false      |
 ### Association
 - belongs_to :user
+- belongs_to :brewer
 - has_many   :comments
 - has_many   :favorite
+
+## brewersテーブル
+|Column              |Type      |Options          |
+|--------------------|----------|-----------------|
+|name                |string    |null: false      |
+|explanation         |text      |null: false      |
+|address             |string    |null: false      |
+|area_id             |integer   |null: false      |
+### Association
+- belongs_to :user
+- has_many   :items
 
 ## commentsテーブル
 |Column|Type      |Options          |
