@@ -1,0 +1,54 @@
+<div class="brewers-edit-contents">
+  <header class="brewers-edit-header">
+    <%# <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %> 
+  </header>
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">酒蔵の情報を入力</h2>
+    <%= form_with model: @brewer, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+ 
+    <div class="edit-brewer">
+      <div class="brewers-name">
+        <div class="weight-bold-text">
+          酒蔵名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :name, class:"brewer-text", id:"brewer-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      </div>
+
+      <div class="brewer-explain">
+        <div class="weight-bold-text">
+          酒蔵の説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :explanation, class:"brewer-text", id:"brewer-info", placeholder:"酒蔵の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+
+      <div class="brewers-address">
+        <div class="weight-bold-text">
+          酒蔵の所在地
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :address, class:"brewers-text", id:"brewer-adress", placeholder:"住所（必須 40文字まで)", maxlength:"40" %>
+      </div>
+
+      <div class= "brewers-area">
+        <div class="weight-bold-text">
+          酒蔵の地域
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"brewer-area"}) %>
+      </div>
+
+    </div>
+
+    <div class="edit-btn-contents">
+      <%= f.submit "変更する" ,class:"edit-btn" %>
+      <%=link_to 'もどる', brewer_path, class:"back-btn" %>
+    </div>
+
+  </div>
+  <% end %>
+
+</div>

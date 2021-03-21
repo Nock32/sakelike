@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "homes#index"
+  root to: "brewers#index"
   resources :users, only: [:edit, :update]
-  resources :items
-  resources :homes
+ 
+  # resources :homes, only: [:index]
+  resources :brewers do
+    resources :items
+  end
 
 
 end
