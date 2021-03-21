@@ -6,8 +6,8 @@
     <ul class= 'lists-right'>
       <%if user_signed_in? %>
         <li><%= link_to "ようこそ#{current_user.nickname}さん", edit_user_path(current_user.id), class: "user-nickname" %></li>
-        <li><%= link_to "日本酒を登録", new_item_path, class: "user-nickname" %></li>
-        <%# <li><%= link_to "蔵元を登録", "#", class: "#" %></li>
+        <li><%= link_to "日本酒を登録", new_brewer_item_path(@brewer), class: "sake-regist" %></li>
+        <li><%= link_to "蔵元を登録", new_brewer_path, class: "brewer-regist" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%> </li>
         <% else %> 
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
@@ -18,7 +18,10 @@
 
   <div class = 'link-button'>
     <div class='intro'>
-      <%= link_to '日本酒をデータベース', items_path %>
+      <%= link_to '日本酒のデータベース', brewer_items_path(@brewer) %>
+    </div>
+    <div class='intro'>
+      <%= link_to '蔵元のデータベース', brewers_path %>
     </div>
     <div class='lank'>
       <%= link_to 'ランキング', "/" %>

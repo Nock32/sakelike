@@ -19,26 +19,6 @@
       <% end %>
     </ul>
   </div>
-  
-  <div class= 'brewer-lists'>
-    <h2 class='title'>蔵元一覧</h2>
-    <ul class='item-lists'>
-      <% @item.each do |item| %>
-        <li class='sake-list'>
-          <%= link_to item_path(item.id) do %>
-            <div class='item-img-content'>
-              <%= image_tag item.image.variant(resize: '500x500'), class: "item-img" %>
-            </div>
-            <div class='brewer-info'>
-              <h3 class='brewer-name'>
-                <%= item.name %>
-              </h3>
-            </div>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
 
 </div>
 <%= render "shared/footer" %>

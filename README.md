@@ -15,6 +15,7 @@
 - has_many :comments
 - has_many :favorite
 - has_many :items
+- has_many :brewer
 
 ## itemsテーブル
 |Column              |Type      |Options          |
@@ -39,6 +40,16 @@
 - has_many   :items
 
 ## commentsテーブル
+|Column|Type      |Options          |
+|------|----------|-----------------|
+|text  |text      |null: false      |
+|user  |references|foreign_key: true|
+|item  |references|foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :brewer
+
+## reviewsテーブル
 |Column|Type      |Options          |
 |------|----------|-----------------|
 |text  |text      |null: false      |
