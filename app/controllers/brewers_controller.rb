@@ -6,6 +6,7 @@ class BrewersController < ApplicationController
   def index
     @brewer = Brewer.all.order('created_at DESC')
     @brewer.includes(:brewer)
+
   end
 
   def new
@@ -14,6 +15,8 @@ class BrewersController < ApplicationController
 
   def show
     @brewer = Brewer.find(params[:id])
+    @item = @brewer.items
+    # @item.includes(:item)
   end
 
   def create
@@ -51,8 +54,6 @@ class BrewersController < ApplicationController
     else
     render :show
     end
-
-
   end
 
   private

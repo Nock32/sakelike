@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   has_one_attached :image
-  belongs_to :use
+  belongs_to :user
   belongs_to :brewer
 
   with_options presence: true do

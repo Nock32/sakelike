@@ -3,7 +3,7 @@ class Brewer < ApplicationRecord
   belongs_to :area
   
   belongs_to :user
-  has_many :items
+  has_many :items , dependent: :destroy
 
   with_options presence: true do
     validates :name, length: { maximum: 40, too_long: '商品名が長すぎます' } 

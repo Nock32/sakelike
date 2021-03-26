@@ -5,14 +5,17 @@
     <ul class='item-lists'>
       <% @item.each do |item| %>
         <li class='sake-list'>
-          <%= link_to item_path(item.id) do %>
+          <%= link_to brewer_item_path(item.brewer_id , item.id) do %>
             <div class='item-img-content'>
-              <%= image_tag item.image.variant(resize: '500x500'), class: "item-img" %>
+              <%= image_tag item.image.variant(resize: '250x250'), class: "item-img" %>
             </div>
             <div class='sake-info'>
-              <h3 class='item-name'>
-                <%= item.name %>
-              </h3>
+              <h2 class='item-name'>
+                  <%= item.name %>
+              </h2>
+              <h2 class='item-explanation'>
+                <%= item.explanation %>
+              </h2>
             </div>
           <% end %>
         </li>

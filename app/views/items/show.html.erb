@@ -1,0 +1,59 @@
+<%= render "shared/header" %>
+<%= render "shared/third_header" %>
+
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= @item.name %>
+    </h2>
+    <div class='item-img-content'>
+      <%= image_tag @item.image.variant(resize: '250x250'), class: "item-img" %>
+    </div>
+
+    <%if user_signed_in? %>
+      <%if current_user.id == @item.user_id %>
+        <%= link_to '日本酒の情報の編集', edit_brewer_item_path, method: :get, class: "item-red-btn" %>
+        <p class='or-text'>or</p>
+        <%= link_to '日本酒の登録情報の削除', brewer_item_path, method: :delete, class:'item-destroy' %>
+      <%end%>
+    <%end%>
+  
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">日本酒の名称</th>
+          <td class="detail-value"><%= @item.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">日本酒の特徴</th>
+          <td class="detail-value"><%= @item.explanation %></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class="option">
+      <div class="favorite-btn">
+        <%# <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%> 
+        <span>お気に入り 0</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="review-box">
+    <form>
+      <textarea class="review-text"></textarea>
+      <p class="review-warn">
+        相手のことを考え丁寧なコメントを心がけましょう。
+        <br>
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      </p>
+      <button type="submit" class="review-btn">
+        <%# <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%> 
+        <span>コメントする<span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

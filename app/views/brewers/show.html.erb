@@ -1,4 +1,5 @@
 <%= render "shared/header" %>
+<%= render "shared/third_header" %>
 
 <div class="item-show">
   <div class="item-box">
@@ -31,6 +32,28 @@
         </tr>
       </tbody>
     </table>
+    <div class= 'item-lists'>
+      <h2 class='title'>日本酒一覧</h2>
+      <ul class='item-lists'>
+        <% @item.each do |item| %>
+          <li class='sake-list'>
+            <%= link_to brewer_item_path(item.brewer_id ,item.id) do %>
+              <div class='item-img-content'>
+                <%= image_tag item.image.variant(resize: '250x250'), class: "item-img" %>
+              </div>
+              <div class='item-info'>
+                <h2 class='item-name'>
+                  <%= item.name %>
+                </h2>
+                <h2 class='item-explanation'>
+                  <%= item.explanation %>
+                </h2>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
     <div class="option">
       <div class="favorite-btn">
         <%# <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%> 
