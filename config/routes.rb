@@ -5,7 +5,7 @@ Rails.application.routes.draw do
  
   # resources :homes, only: [:index]
   resources :brewers do
-    resources :items
+    resources :items 
   end
 
 
