@@ -12,9 +12,9 @@
 
     <%if user_signed_in? %>
       <%if current_user.id == @item.user_id %>
-        <%= link_to '日本酒の情報の編集', edit_brewer_item_path, method: :get, class: "item-red-btn" %>
+        <%= link_to '日本酒の情報の編集', edit_item_path, method: :get, class: "item-red-btn" %>
         <p class='or-text'>or</p>
-        <%= link_to '日本酒の登録情報の削除', brewer_item_path, method: :delete, class:'item-destroy' %>
+        <%= link_to '日本酒の登録情報の削除', item_path, method: :delete, class:'item-destroy' %>
       <%end%>
     <%end%>
   
@@ -31,6 +31,7 @@
 
       </tbody>
     </table>
+
 
     <div class="option">
       <div class="favorite-btn">
