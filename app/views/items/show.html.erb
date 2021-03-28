@@ -32,6 +32,31 @@
       </tbody>
     </table>
 
+    <div class="review-wrapper">
+      <div class="card-header font-weight-bold">
+        この日本酒のレビュー
+      </div>
+      <div class="review-lists">
+        <% @review.each do |review| %>
+          <li class='review-list'>
+            <%= link_to review_path(review.id) do %>
+              <div class='review-content'>
+                <h2 class='reviewer-name'>
+                    <%= review.content %>
+                </h2>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </div>
+      <%= form_with model: [@item, @review],url: item_reviews_path(@item.id), method: :post, class: 'form', local: true do |f| %>
+        <div class="form-input">
+          <span>本文</span>
+          <%= f.text_field :content, class: 'review-text', placeholder: "レビュー本文（必須 1000文字まで)", maxlength:"1000"  %>
+        </div>
+        <%= f.submit '送信', class: 'form-submit' %>
+      <% end %>
+    </div>
 
     <div class="option">
       <div class="favorite-btn">

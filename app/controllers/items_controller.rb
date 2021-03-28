@@ -25,7 +25,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @brewer = Brewer.all
+    @review = @item.reviews
   end
 
   def edit
