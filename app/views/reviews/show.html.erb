@@ -1,0 +1,32 @@
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="user-name">
+    <span>投稿者</span>
+      <%= @user.nickname %>
+    <span>日本酒名</span>
+      <%= @item.name %>
+    </h2>
+
+    <%if user_signed_in? %>
+      <%if current_user.id == @review.user_id %>
+        <%= link_to 'レビューの編集', edit_review_path, method: :get, class: "item-red-btn" %>
+        <p class='or-text'>or</p>
+        <%= link_to 'レビューの削除', review_path, method: :delete, class:'item-destroy' %>
+      <%end%>
+    <%end%>
+  
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">レビュー本文</th>
+          <td class="detail-value"><%= @review.content %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="edit-btn-contents">
+  <%=link_to 'もどる', item_path(@review.item_id), class:"back-btn" %>
+</div>
+
+<%= render "shared/footer" %>

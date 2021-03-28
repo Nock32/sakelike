@@ -12,9 +12,9 @@
 
     <%if user_signed_in? %>
       <%if current_user.id == @item.user_id %>
-        <%= link_to '日本酒の情報の編集', edit_brewer_item_path, method: :get, class: "item-red-btn" %>
+        <%= link_to '日本酒の情報の編集', edit_item_path, method: :get, class: "item-red-btn" %>
         <p class='or-text'>or</p>
-        <%= link_to '日本酒の登録情報の削除', brewer_item_path, method: :delete, class:'item-destroy' %>
+        <%= link_to '日本酒の登録情報の削除', item_path, method: :delete, class:'item-destroy' %>
       <%end%>
     <%end%>
   
@@ -31,6 +31,32 @@
 
       </tbody>
     </table>
+
+    <div class="review-wrapper">
+      <div class="card-header font-weight-bold">
+        この日本酒のレビュー
+      </div>
+      <div class="review-lists">
+        <% @review.each do |review| %>
+          <li class='review-list'>
+            <%= link_to review_path(review.id) do %>
+              <div class='review-content'>
+                <h2 class='reviewer-name'>
+                    <%= review.content %>
+                </h2>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </div>
+      <%= form_with model: [@item, @review],url: item_reviews_path(@item.id), method: :post, class: 'form', local: true do |f| %>
+        <div class="form-input">
+          <span>本文</span>
+          <%= f.text_field :content, class: 'review-text', placeholder: "レビュー本文（必須 1000文字まで)", maxlength:"1000"  %>
+        </div>
+        <%= f.submit '送信', class: 'form-submit' %>
+      <% end %>
+    </div>
 
     <div class="option">
       <div class="favorite-btn">

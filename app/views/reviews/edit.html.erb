@@ -1,0 +1,24 @@
+
+  <div class="review-edit-main">
+    <h2 class="review-edit-title">レビューの変更内容を入力</h2>
+    <%= form_with model: [@item, @review],url:review_path,class: 'item-form', local: true do |f| %>
+    
+      <%= render 'shared/error_messages', model: f.object %>
+  
+      <div class="edit-item">
+        <div class="review-edit-content">
+          <div class="weight-bold-text">
+            レビュー更新内容を記載してください
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :content, class:"review-text", id:"item-name", placeholder:"レビュー本文（必須 1000文字まで)", maxlength:"1000" %>
+        </div>
+
+      </div>
+
+      <div class="edit-btn-contents">
+        <%= f.submit "変更する" ,class:"edit-btn" %>
+        <%=link_to 'もどる', review_path, class:"back-btn" %>
+      </div>
+    <% end %>
+  </div>

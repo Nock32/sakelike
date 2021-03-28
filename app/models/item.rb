@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   has_one_attached :image
   belongs_to :user
   belongs_to :brewer
+  has_many   :reviews
 
   with_options presence: true do
     validates :image
