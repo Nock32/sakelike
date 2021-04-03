@@ -42,7 +42,7 @@
 
       <div class="edit-btn-contents">
         <%= f.submit "変更する" ,class:"edit-btn" %>
-        <%=link_to 'もどる', brewer_path, class:"back-btn" %>
+        <%=link_to 'もどる', brewer_path(@item.brewer_id), class:"back-btn" %>
       </div>
     <% end %>
   </div>

@@ -1,30 +1,31 @@
 <div class='footer'>
-  <div class='footer-contents'>
-    <div class='sakelike-details'>
-      <h2 class='footer-content-head'>SAKE LIKEについて</h2>
-      <ul>
-        <li><%= link_to '会社概要（運営会社)', "#", class: "footer-link" %></li>
-        <li><%= link_to 'プライバシーポリシー', "#", class: "footer-link" %></li>
-        <li><%= link_to 'SAKE LIKE 利用規約', "#", class: "footer-link" %></li>
-        <li><%= link_to 'ポイントに関する特約', "#", class: "footer-link" %></li>
-      </ul>
+  <div class='footer-contents  text-decoration-none  bg-dark'>
+    <div class="mx-4 row row-cols-3">
+      <div class='sakelike-details '>
+        <h4 class='footer-content-head text-secondary'>SAKE LIKEについて</h4>
+        <ul class="text-decoration-none border-start  ">
+          <li><%= link_to '会社概要（運営会社)', "#", class: "footer-link text-decoration-none text-light" %></li>
+          <li><%= link_to 'プライバシーポリシー', "#", class: "footer-link text-decoration-none text-light" %></li>
+          <li><%= link_to 'SAKE LIKE 利用規約', "#", class: "footer-link text-decoration-none text-light" %></li>
+          <li><%= link_to 'ポイントに関する特約', "#", class: "footer-link text-decoration-none text-light" %></li>
+        </ul>
+      </div>
+      <div class='sakelike-details '>
+        <h4 class='footer-content-head text-secondary'>SAKE LIKEを見る</h4>
+        <ul class="text-decoration-none border-start  ">
+          <li><%= link_to 'カテゴリー一覧', "#", class: "footer-link text-decoration-none text-light" %></li>
+          <li><%= link_to 'ブランド一覧', "#", class: "footer-link text-decoration-none text-light" %></li>
+        </ul>
+      </div>
+      <div class='sakelike-details'>
+        <h4 class='footer-content-head text-secondary'>SAKE LIKEについて</h4>
+        <ul class="text-decoration-none border-start  ">
+          <li><%= link_to 'SAKE LIKE ガイド', "#", class: "footer-link text-decoration-none text-light" %></li>
+          <li><%= link_to 'SAKE LIKE ロゴ利用ガイドライン', "#", class: "footer-link text-decoration-none text-light" %></li>
+          <li><%= link_to 'お知らせ', "#", class: "footer-link text-decoration-none text-light" %></li>
+        </ul>
+      </div>
     </div>
-    <div class='sakelike-details'>
-      <h2 class='footer-content-head'>SAKE LIKEを見る</h2>
-      <ul>
-        <li><%= link_to 'カテゴリー一覧', "#", class: "footer-link" %></li>
-        <li><%= link_to 'ブランド一覧', "#", class: "footer-link" %></li>
-      </ul>
-    </div>
-    <div class='sakelike-details'>
-      <h2 class='footer-content-head'>SAKE LIKEについて</h2>
-      <ul>
-        <li><%= link_to 'SAKE LIKE ガイド', "#", class: "footer-link" %></li>
-        <li><%= link_to 'SAKE LIKE ロゴ利用ガイドライン', "#", class: "footer-link" %></li>
-        <li><%= link_to 'お知らせ', "#", class: "footer-link" %></li>
-      </ul>
-    </div>
+    <p class="row justify-content-end mx-4 text-light" >©SAKE LIKE</p>
   </div>
-  <%# <%= link_to image_tag("#", class:"logo-white"), "#" %>
-  <p>©SAKE LIKE</p>
 </div>

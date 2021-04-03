@@ -1,33 +1,122 @@
 <header>
-  <div class='nav'>
-    <div class='logo'>
-      <%= link_to 'SAKE LIKE', "/" %>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"text-decoration-none text-light btn btn-primary" %>
+      </div>
     </div>
-    <ul class= 'lists-right'>
-      <%if user_signed_in? %>
-        <li><%= link_to "ようこそ#{current_user.nickname}さん", edit_user_path(current_user.id), class: "user-nickname" %></li>
-        <li><%= link_to "蔵元を登録", new_brewer_path, class: "brewer-regist" %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%> </li>
-        <% else %> 
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-        <li><%= link_to 'サインアップ', new_user_registration_path , class: "sign-up" %></li>
-      <% end %>
-    </ul>
   </div>
+</div>
+<div class="">
+  <div class='nav  py-2 bg-dark d-flex border-bottom border-4'>
+    <div class='logo text-center me-auto p-2 '>
+      <h1 >
+        <%= link_to 'SAKE LIKE', "/", class:"text-decoration-none text-light "%>
+      </h1>
+    </div>
+    <%if user_signed_in? %>
+      <div class = "text-center d-flex align-items-center px-3" >
+        <span style = "color:orange;">・</span>
+        <%= link_to "ようこそ、#{current_user.nickname}さん！", edit_user_path(current_user.id), class: "user-nickname  text-decoration-none text-light " %>
+      </div>
+      <div class = "text-center d-flex align-items-center px-3" >
+        <span style = "color:orange;">・</span>
+        <%= link_to "蔵元を登録", new_brewer_path, class: "brewer-regist text-decoration-none text-light" %>
+      </div>
+      <div class = "text-center d-flex align-items-center px-3" >
+        <span style = "color:orange;">・</span>
+        <a type="button" class="text-decoration-none text-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        ログアウト
+        </a>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ログアウトしますか？</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                ログアウトしますか？
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"text-decoration-none text-light btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class = "text-center d-flex align-items-center px-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+          <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z"/>
+          <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+        </svg>
+        <%= link_to 'ログイン', new_user_session_path, class: "login text-decoration-none text-light" %>
+      </div>
+      <div class = "text-center d-flex align-items-center px-3">
+        <%= link_to 'サインアップ', new_user_registration_path , class: "sign-up text-decoration-none text-light" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-  <div class = 'link-button'>
-    <div class='intro'>
-      <%= link_to '日本酒のデータベース', brewer_items_path(@brewer)%>
+  <ul class = 'link-button nav nav-tabs justify-content-center mb-3'>
+    <li class='intro mx-2'>
+      <div class="btn btn-secondary" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+        <%= link_to '日本酒のデータベース', brewer_items_path(@brewer) , class:"text-decoration-none text-light" %>
+      </div>
+    </li>
+    <li class='intro mx-2'>
+      <div class="btn btn-secondary" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+        <%if current_page?(root_path) %>
+         <a href="#brewer-data" class="text-decoration-none text-light">蔵元のデータベース</a>
+        <% else %>
+          <%= link_to '蔵元のデータベース', brewers_path  , class:"text-decoration-none text-light" %>
+        <%end%>
+      </div>
+    </li>
+    <li class='lank mx-2'>
+      <div class="btn btn-secondary" >
+        <%= link_to 'ランキング', "/" , class:"text-decoration-none text-light" %>
+      </div>
+    </li>
+    <li class='review mx-2'>
+      <div class="btn btn-secondary " >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-text-fill" viewBox="0 0 16 16">
+            <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM3.5 3h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zm0 2.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zm0 2.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1z"/>
+          </svg>
+        <%= link_to '口コミ', "/" , class:"text-decoration-none text-light" %>
+      </div>
+    </li>
+  </ul>
+  <nav class="navbar navbar-light bg-light">
+  <form class="container-fluid">
+    <div class="input-group">
+      <button type="button" class="btn btn-secondary input-group-text">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-text-fill" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+        </svg>
+      </button>
+      <input type="text" class="form-control" placeholder="日本酒や酒蔵を検索" aria-label="Username" aria-describedby="basic-addon1">
     </div>
-    <div class='intro'>
-      <%= link_to '蔵元のデータベース', brewers_path %>
-    </div>
-    <div class='lank'>
-      <%= link_to 'ランキング', "/" %>
-    </div>
-    <div class='review'>
-      <%= link_to '口コミ', "/" %>
-    </div>
-  </div>
+  </form>
+</nav>
+
   
 </header>
