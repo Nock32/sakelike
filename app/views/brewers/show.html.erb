@@ -52,7 +52,7 @@
     <div class='item-contents mb-3' id= "item-data">
       <div class= 'item-lists mx-3' >
         <div class="card">
-          <h3 class="card-header">日本酒一覧</h3>
+          <h4 class="card-header">この酒蔵の日本酒一覧</h4>
           <div class="card-body d-flex row row-cols-2">
             <% @item.each do |item| %>
               <%= link_to item_path(item.id) , class:"text-dark text-decoration-none" do %>
