@@ -64,8 +64,8 @@
                     <div class="col-md-8 bg-light">
                       <div class="card-body ">
                         <h4 class="card-title "><%= item.name%></h4>
-                        <p class="card-text">日本酒の説明：<%= item.explanation %></p>
-                        <p class="card-text">酒蔵名：<%= item.explanation %></p>
+                        <p class="card-text">説明：<%= item.explanation %></p>
+                        <p class="card-text">酒蔵名：<%= item.brewer.name %></p>
                       </div>
                     </div>
                   </div>
@@ -77,13 +77,15 @@
       </div>
     </div>
   </div>
+
   <div class="comment-box">
     <form class="w-50 mx-auto mb-5">
       <div class="mb-3 ">
-        <label for="exampleInputEmail1" class="form-label">日本酒へのレビューを投稿する</label>
+        <label for="exampleInputEmail1" class="form-label">酒蔵へのコメントを投稿</label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">相手のことを考え丁寧なコメントを心がけましょう。
-不快な言葉遣いなどは利用制限や退会処分となることがあります。</div>
+        <div id="emailHelp" class="form-text">
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        </div>
       </div>
       <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">

@@ -1,84 +1,97 @@
 <%= render "shared/header" %>
-<%= render "shared/third_header" %>
 
 <div class="item-show">
   <div class="item-box">
-    <h2 class="name">
+    <h1 class="name mx-auto text-center my-4">
       <%= @item.name %>
-    </h2>
-    <div class='item-img-content'>
-      <%= image_tag @item.image.variant(resize: '250x250'), class: "item-img" %>
+    </h1>
+    <div class='item-img-content d-flex justify-content-center mb-3'>
+      <%= image_tag @item.image.variant(resize: '400x400'), class: "item-img" %>
+    </div>
+    <div class="option mx-auto">
+      <div class="d-flex justify-content-end mb-3">
+        <span class="mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-hand-thumbs-up-fill mx-auto" viewBox="0 0 16 16">
+            <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.964.22.817.533 2.512.062 4.51a9.84 9.84 0 0 1 .443-.05c.713-.065 1.669-.072 2.516.21.518.173.994.68 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.162 3.162 0 0 1-.488.9c.054.153.076.313.076.465 0 .306-.089.626-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.826 4.826 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.616.849-.231 1.574-.786 2.132-1.41.56-.626.914-1.279 1.039-1.638.199-.575.356-1.54.428-2.59z"/>
+          </svg>
+            1000
+        </span>
+      </div>
     </div>
 
     <%if user_signed_in? %>
       <%if current_user.id == @item.user_id %>
-        <%= link_to '日本酒の情報の編集', edit_item_path, method: :get, class: "item-red-btn" %>
-        <p class='or-text'>or</p>
-        <%= link_to '日本酒の登録情報の削除', item_path, method: :delete, class:'item-destroy' %>
+        <div class="d-grid gap-3 col-4 mx-auto mb-5">
+          <div class="w-100 shadow">
+            <%= link_to '日本酒の情報の編集', edit_item_path, method: :get, class: "btn btn-secondary text-light w-100 shadow" %>
+          </div>
+          <div class="w-100 shadow">
+            <%= link_to '日本酒の登録情報の削除', item_path, method: :delete, class:'btn btn-danger text-light  w-100' %>
+          </div>
+        </div>
       <%end%>
     <%end%>
   
-    <table class="detail-table">
-      <tbody>
-        <tr>
-          <th class="detail-item">日本酒の名称</th>
-          <td class="detail-value"><%= @item.name %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">日本酒の特徴</th>
-          <td class="detail-value"><%= @item.explanation %></td>
-        </tr>
+    <div class="w-50 mx-auto text-center ">
+      <table class="table" >
+        <tbody>
+          <tr>
+            <th scope="row" class = "border rounded bg-light fs-5 fw-bold ">日本酒の名称</th>
+            <td class = "border rounded  align-middle"><%= @item.name %></td>
+          </tr>
+          <tr>
+            <th scope="row" class = "border  rounded  bg-light fs-5 fw-bold">日本酒の特徴</th>
+            <td class = "border  rounded align-middle"><%= @item.explanation %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
 
-      </tbody>
-    </table>
-
-    <div class="review-wrapper">
-      <div class="card-header font-weight-bold">
+    <div class="review-wrapper col-sm-8 mx-auto">
+      <div class="card-header font-weight-bold fs-5 fw-bold border text-center">
         この日本酒のレビュー
       </div>
-      <div class="review-lists">
+      <div class="review-lists border  pt-3 d-flex align-items-center flex-column">
         <% @review.each do |review| %>
-          <li class='review-list'>
-            <%= link_to review_path(review.id) do %>
-              <div class='review-content'>
-                <h2 class='reviewer-name'>
-                    <%= review.content %>
-                </h2>
+          <%= link_to review_path(review.id) , class:"text-dark text-decoration-none " do %>
+            <div class="col-sm-10 mb-3">
+              <div class="card">
+                <div class="card-body text-dark">
+                  <h5 class="card-title">タイトル：<%= review.title %></h5>
+                  <p class="card-text">本文：<%= review.content %></p>
+                  <p class="card-text"><%= review.created_at.strftime('%Y年%m月%d日') %> 投稿 by <%= review.user.nickname %> さん</p>
+                  <%= link_to "投稿を編集", edit_review_path(review.id) , class:"btn btn-primary"%>
+                </div>
               </div>
-            <% end %>
-          </li>
+            </div>
+          <% end %>
         <% end %>
       </div>
-      <%= form_with model: [@item, @review],url: item_reviews_path(@item.id), method: :post, class: 'form', local: true do |f| %>
-        <div class="form-input">
-          <span>本文</span>
-          <%= f.text_field :content, class: 'review-text', placeholder: "レビュー本文（必須 1000文字まで)", maxlength:"1000"  %>
-        </div>
-        <%= f.submit '送信', class: 'form-submit' %>
-      <% end %>
-    </div>
-
-    <div class="option">
-      <div class="favorite-btn">
-        <%# <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%> 
-        <span>お気に入り 0</span>
+      <div class="comment-box mt-3">
+        <%= form_with model: [@item, @review],url: item_reviews_path(@item.id), method: :post, class: 'form w-50 mx-auto mb-5', local: true do |f| %>
+          <div class="mb-3 ">
+            <label for="exampleInputEmail1" class="form-label">日本酒へのレビューを投稿する</label>
+              <div class="form-input">
+                <span>タイトル</span>
+                <%= f.text_field :title, class: 'review-title form-control', placeholder: "レビュータイトル（必須 40文字まで)", maxlength:"40"  %>
+              </div>
+              <div class="form-input">
+                <span>本文</span>
+                <%= f.text_field :content, class: 'review-text form-control', placeholder: "レビュー本文（必須 1000文字まで)", maxlength:"1000"  %>
+              </div>
+            <div id="emailHelp" class="form-text">
+              相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            </div>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">レビュー内容の確認</label>
+          </div>
+          <%= f.submit 'レビューを投稿', class: 'form-submit btn btn-primary badge rounded-pill btn-lg w-50 fs-4 mx-auto d-flex justify-content-center' , style:"line-height: 36px;" %>
+        <% end %>
       </div>
     </div>
-  </div>
-
-  <div class="review-box">
-    <form>
-      <textarea class="review-text"></textarea>
-      <p class="review-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <button type="submit" class="review-btn">
-        <%# <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%> 
-        <span>コメントする<span>
-      </button>
-    </form>
   </div>
 </div>
 
