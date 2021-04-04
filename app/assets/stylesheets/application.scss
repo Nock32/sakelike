@@ -17,3 +17,6 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
+// @import flatpickr from "flatpickr";
+@import 'flatpickr/dist/flatpickr.css';
