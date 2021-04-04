@@ -1,8 +1,8 @@
 <%= render "shared/header" %>
 
 <div class="item-show">
-  <div class="item-box">
-    <h1 class="name mx-auto text-center my-4">
+  <div class="item-box col-sm-8 mx-auto border mb-3">
+    <h1 class="card-header mx-auto text-center my-3 w-50 border">
       <%= @item.name %>
     </h1>
     <div class='item-img-content d-flex justify-content-center mb-3'>
@@ -19,19 +19,6 @@
       </div>
     </div>
 
-    <%if user_signed_in? %>
-      <%if current_user.id == @item.user_id %>
-        <div class="d-grid gap-3 col-4 mx-auto mb-5">
-          <div class="w-100 shadow">
-            <%= link_to '日本酒の情報の編集', edit_item_path, method: :get, class: "btn btn-secondary text-light w-100 shadow" %>
-          </div>
-          <div class="w-100 shadow">
-            <%= link_to '日本酒の登録情報の削除', item_path, method: :delete, class:'btn btn-danger text-light  w-100' %>
-          </div>
-        </div>
-      <%end%>
-    <%end%>
-  
     <div class="w-50 mx-auto text-center ">
       <table class="table" >
         <tbody>
@@ -46,8 +33,23 @@
         </tbody>
       </table>
     </div>
-    
 
+    <%if user_signed_in? %>
+      <%if current_user.id == @item.user_id %>
+        <div class="d-grid gap-3 col-6 mx-auto mb-5 d-flex align-items-center flex-column">
+          <div class="w-50 shadow ">
+            <%= link_to '日本酒の情報の編集', edit_item_path, method: :get, class: "btn btn-secondary text-light w-100 shadow" %>
+          </div>
+          <div class="w-50 shadow">
+            <%= link_to '日本酒の登録情報の削除', item_path, method: :delete, class:'btn btn-danger text-light  w-100' %>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
+  
+  </div>
+
+  <div class="review-box">
     <div class="review-wrapper col-sm-8 mx-auto">
       <div class="card-header font-weight-bold fs-5 fw-bold border text-center">
         この日本酒のレビュー
@@ -68,7 +70,8 @@
           <% end %>
         <% end %>
       </div>
-      <div class="comment-box mt-3">
+
+      <div class="comment-box my-3 border pt-3">
         <%= form_with model: [@item, @review],url: item_reviews_path(@item.id), method: :post, class: 'form w-50 mx-auto mb-5', local: true do |f| %>
           <div class="mb-3 ">
             <label for="exampleInputEmail1" class="form-label">日本酒へのレビューを投稿する</label>
@@ -93,6 +96,7 @@
       </div>
     </div>
   </div>
+  
 </div>
 
 <%= render "shared/footer" %>
