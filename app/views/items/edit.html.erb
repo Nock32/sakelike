@@ -3,7 +3,7 @@
   <div class="items-sell-main w-50 mx-auto text-center">
     <div class="card my-3" >
       <div class="card-header fs-2">
-        ユーザー登録情報編集
+        日本酒の登録情報を編集
       </div>
       <%= form_with model: [@brewer, @item],class: 'item-form', local: true do |f| %>
         <%= render 'shared/error_messages', model: f.object %>
@@ -21,7 +21,7 @@
             <tr>
               <th scope="row" class = "border  rounded  bg-light fs-5 fw-bold">日本酒名</th>
               <td class = "border  rounded align-middle">
-                <%= f.text_field :name, class:"items-text form-control", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+                <%= f.text_field :name, class:"items-text form-control", id:"item-name", placeholder:"日本酒名（必須 40文字まで)", maxlength:"40" %>
               </td>
             </tr>
             <tr>
