@@ -1,68 +1,106 @@
-
 <%= render "shared/header" %>
-<%= render "shared/second_header" %>
-<div class='title-contents'>
-  <h2 class='service-title'>
-    最高の日本酒に出会えるアプリ
-  </h2>
+<div class ="position-relative w-1200" style=" height:500px;" >
+  <div >
+  <img class= "img-fluid rounded position-absolute top-50 start-50 translate-middle" src="https://picsum.photos/1500/500/" style="opacity: .8;">
+  </div>
+  <div class=" d-flex flex-column position-absolute top-50 start-50 translate-middle mx-auto">
+    <h1 class="display-4 text-light" style="text-shadow: black 1px 1px 0px, black -1px 1px 0px, black 1px -1px 0px, black -1px -1px 0px;">最高の日本酒を見つける</h1>
+    <h3 class="lead mx-auto text-light" style="text-shadow: black 1px 1px 0px, black -1px 1px 0px, black 1px -1px 0px, black -1px -1px 0px;">Way to your sake...</h3>
+    <hr class="my-4 bold">
+  </div>
 </div>
-<div class='whats-sakelike-contents'>
-  <h2 class='title'>
-    SAKE LIKE とは？
-  </h2>
-  <P>
-  最高の日本酒にたどり着くための道標
-  </p>
-  <ul class='reason-lists'>
-    <li class='list'>
-      <%# <%= image_tag "#", class:"list-pict" %> 
-      <h3 class='reason-list-text'>
-        あああああああああああ
-      </h3>
-      <p class='reason-list-description'>
-        おおおおおおおおおおお
-      </p>
-    </li>
-    <li class='list'>
-      <%# <%= image_tag "#", class:"list-pict" %> 
-      <h3 class='reason-list-text'>
-        あああああああああああ
-      </h3>
-      <p class='reason-list-description'>
-        おおおおおおおおおおお
-      </p>
-    </li>
-    <li class='list'>
-      <%# <%= image_tag "#", class:"list-pict" %> 
-      <h3 class='reason-list-text'>
-        あああああああああああ
-      </h3>
-      <p class='reason-list-description'>
-        おおおおおおおおおおお
-      </p>
-    </li>
-  </ul>
+<div class='whats-sakelike-contents '>
+
+  <div class="mx-auto mt-5" style="width: 300px;">
+    <h2 class='title'>
+      <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 30px; height: 30px; opacity: 1;" xml:space="preserve">
+          <style type="text/css">
+            .st0{fill:#4B4B4B;}
+          </style>
+          <g>
+            <path class="st0" d="M212.901,125.509c-11.579-15.721-12.58-36.852-2.538-53.586l31.058-51.77c2.469-4.116,2.534-9.229,0.17-13.406
+              C239.232,2.578,234.81,0,230.017,0h-78.904H72.208c-4.788,0-9.21,2.578-11.574,6.746c-2.36,4.177-2.294,9.29,0.175,13.406
+              l31.058,51.77c10.042,16.735,9.041,37.866-2.539,53.586l-29.494,46.588c-14.694,23.219-22.498,50.135-22.498,77.62v207.857
+              c0,30.061,24.368,54.426,54.426,54.426h118.706c30.058,0,54.426-24.365,54.426-54.426V249.717c0-27.484-7.804-54.4-22.499-77.62
+              L212.901,125.509z" style="fill: rgb(75, 75, 75);"></path>
+            <path class="st0" d="M286.929,361.244v25.597c0,35.62,19.838,66.599,49.07,82.505v28.427H425.6v-28.427
+              c29.228-15.906,49.065-46.885,49.065-82.505v-25.597H286.929z" style="fill: rgb(75, 75, 75);"></path>
+          </g>
+        </svg>
+        SAKE LIKE とは？
+    </h2>
+    <P>
+    最高の日本酒にたどり着くための道標
+    </p>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 " >
+      <div class="card text-center mb-3 ms-3" style="height: 250px;">
+        <div class="card-body ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-search mb-3" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>          </svg>
+          <h5 class="card-title mb-3 text-decoration-underline">必要且つ十分なデータ</h5>
+          <p class="card-text">あなたの理想とする日本酒を探すことができます。</p>
+          <div class="d-flex flex-column">
+          <%= link_to '日本酒のデータベース', brewer_items_path(@brewer) , class:"text-decoration-none text-light btn btn-secondary mx-auto mb-2" %>
+          <%= link_to '蔵元のデータベース', brewers_path  , class:"text-decoration-none text-light btn btn-secondary mx-auto" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card text-center mb-3 " style="height: 250px;">
+        <div class="card-body">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-gear-fill mb-3" viewBox="0 0 16 16">
+          <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+          </svg>
+          <h5 class="card-title mb-3 text-decoration-underline">シンプルな機能性</h5>
+          <p class="card-text">追加やすさにこだわったシンプルな機能性</p>
+          <%= link_to '機能の紹介', "#"  , class:"text-decoration-none text-light btn btn-secondary mx-auto" %>
+        
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card text-center mb-3 me-3" style="height: 250px;">
+        <div class="card-body">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chat-right-text-fill mb-3" viewBox="0 0 16 16">
+            <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM3.5 3h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zm0 2.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zm0 2.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1z"/>
+          </svg>
+          <h5 class="card-title mb-3 text-decoration-underline">リアルな口コミ</h5>
+          <p class="card-text">幅広い年齢層のリアルな評価が集まっております。</p>
+          <%= link_to '口コミページへ', "#"  , class:"text-decoration-none text-light btn btn-secondary mx-auto" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class='brewer-contents'>
-  
-  <div class= 'brewer-lists'>
-    <h2 class='title'>蔵元一覧</h2>
-    <ul class='item-lists'>
-      <% @brewer.each do |brewer| %>
-        <li class='sake-list'>
-          <%= link_to brewer_path(brewer.id) do %>
-            <div class='brewer-info'>
-              <h2 class='brewer-name'>
-                <%= brewer.name %>
-              </h2>
-              <h3 class='brewer-area'>
-                <%= brewer.area.name %>
-              </h3>
+<div class='brewer-contents mb-3' id= "brewer-data">
+  <div class= 'brewer-lists mx-3' >
+    <div class="card">
+      <h3 class="card-header">蔵元データ一覧</h3>
+      <div class="card-body d-flex row row-cols-2">
+        <% @brewer.each do |brewer| %>
+          <%= link_to brewer_path(brewer.id) , class:"text-dark text-decoration-none" do%>
+            <div class="card m-3" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="..." alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body ">
+                    <h4 class="card-title "><%= brewer.name%></h4>
+                    <p class="card-text ">代表銘柄：</p>
+                    <p class="card-text">酒蔵のエリア：<%= brewer.area.name %></p>
+                  </div>
+                </div>
+              </div>
             </div>
           <% end %>
-        </li>
-      <% end %>
-    </ul>
+        <% end %>
+      </div>
+    </div>
   </div>
 
 </div>
