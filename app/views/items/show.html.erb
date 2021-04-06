@@ -74,14 +74,14 @@
       <div class="comment-box my-3 border pt-3">
         <%= form_with model: [@item, @review],url: item_reviews_path(@item.id), method: :post, class: 'form w-50 mx-auto mb-5', local: true do |f| %>
           <div class="mb-3 ">
-            <label for="exampleInputEmail1" class="form-label">日本酒へのレビューを投稿する</label>
+            <h5 for="exampleInputEmail1" class="form-label mx-auto  text-center " >日本酒へのレビューを投稿する</h5>
               <div class="form-input">
                 <span>タイトル</span>
                 <%= f.text_field :title, class: 'review-title form-control', placeholder: "レビュータイトル（必須 40文字まで)", maxlength:"40"  %>
               </div>
               <div class="form-input">
-                <span>本文</span>
-                <%= f.text_field :content, class: 'review-text form-control', placeholder: "レビュー本文（必須 1000文字まで)", maxlength:"1000"  %>
+                <span>レビュー本文</span>
+                <%= f.text_area :content, class: 'review-text form-control', placeholder: "レビュー本文（必須 1000文字まで)", maxlength:"1000" ,rows:"7"  %>
               </div>
             <div id="emailHelp" class="form-text">
               相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。

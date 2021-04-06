@@ -1,24 +1,36 @@
+<%= render "shared/header_edit" %>
+<div class="brewers-edit-contents ">
+  <div class="items-sell-main w-50 mx-auto text-center">
+    <div class="card my-3" >
+      <div class="card-header fs-2">
+        レビューの変更内容を入力
+      </div>
+     <%= form_with model: [@item, @review],url:review_path,class: 'item-form', local: true do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+        <table class="table" >
 
-  <div class="review-edit-main">
-    <h2 class="review-edit-title">レビューの変更内容を入力</h2>
-    <%= form_with model: [@item, @review],url:review_path,class: 'item-form', local: true do |f| %>
-    
-      <%= render 'shared/error_messages', model: f.object %>
-  
-      <div class="edit-item">
-        <div class="review-edit-content">
-          <div class="weight-bold-text">
-            レビュー更新内容を記載してください
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.text_area :content, class:"review-text", id:"item-name", placeholder:"レビュー本文（必須 1000文字まで)", maxlength:"1000" %>
+          <tbody>
+            <tr>
+              <th scope="row" class = "border rounded bg-light fs-5 fw-bold align-middle">タイトルを記載してください</th>
+              <td class = "border  rounded align-middle col-6">
+                <%= f.text_field :title, class:"items-text form-control align-middle", id:"item-info", placeholder:"レビュー本文（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class = "border rounded bg-light fs-5 fw-bold align-middle">レビュー内容を記載してください</th>
+              <td class = "border  rounded align-middle col-6">
+                <%= f.text_area :content, class:"items-text form-control align-middle", id:"item-info", placeholder:"レビュー本文（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+        <div class="edit-btn-contents">
+          <%= f.submit "変更する" ,class:"form-submit btn btn-primary badge rounded-pill btn-lg w-50 fs-6 mx-auto d-flex justify-content-center mb-3" %>
+          <%=link_to 'もどる', item_path(@review.item_id), class:"form-submit btn btn-secondary badge rounded-pill btn-lg w-50 fs-6 mx-auto d-flex justify-content-center mb-3" %>
         </div>
-
-      </div>
-
-      <div class="edit-btn-contents">
-        <%= f.submit "変更する" ,class:"edit-btn" %>
-        <%=link_to 'もどる', review_path, class:"back-btn" %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+</div>
+<%= render "shared/footer" %>
