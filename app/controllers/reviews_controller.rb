@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  add_breadcrumb 'トップページ', :root_path
 
   def index
     @item = Item.find(params[:item_id])
@@ -17,13 +18,19 @@ class ReviewsController < ApplicationController
   end
   
   def show
+
     @review = Review.find(params[:id])
     @user= User.find(@review.user_id)
     @item= Item.find(@review.item_id)
   end
 
   def edit
+    # binding.pry
+    # @item = Item.find(params[:item_id])
+    # add_breadcrumb '日本酒の詳細', item_path
+    add_breadcrumb 'レビューの編集'
     @review = Review.find(params[:id])
+    # @reviews = @itme.reviews
     if current_user.id != @review.user_id
       redirect_to root_path
     else

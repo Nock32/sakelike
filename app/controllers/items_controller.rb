@@ -2,7 +2,10 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item_id, only:[:show, :edit, :update, :destroy]
 
+  add_breadcrumb 'トップページ', :root_path
+
   def index
+    add_breadcrumb '日本酒の詳細'
     @brewer = Brewer.all
     @item = Item.all
     @item.includes(:brewer)
@@ -25,12 +28,17 @@ class ItemsController < ApplicationController
   end
 
   def show
+    add_breadcrumb '日本酒のデータベース', brewer_items_path(@item.brewer_id)
+    add_breadcrumb '日本酒の詳細'
     @review = Review.new
     @brewer = Brewer.all
     @review = @item.reviews
   end
 
   def edit
+    add_breadcrumb '日本酒のデータベース', brewer_items_path(@item.brewer_id)
+    add_breadcrumb '日本酒の詳細', item_path
+    add_breadcrumb '日本酒情報の編集'
     if current_user.id != @item.user_id
       redirect_to root_path
     else
