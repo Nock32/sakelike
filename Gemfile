@@ -62,3 +62,4 @@ gem 'bootstrap', '~> 5.0.0.beta2'
 gem 'jquery-rails'
 gem 'bootstrap-datetimepicker-rails'
 gem 'gretel'
+gem "breadcrumbs_on_rails"

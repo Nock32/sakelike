@@ -1,16 +1,16 @@
-# crumb :root do
-#   link "Home", root_path
-# end
+crumb :root do
+  link "トップページ", root_path
+end
 
-# crumb :index_sake do
-#   link "日本酒一覧", brewer_items_path
-#   parent :root
-# end
+crumb :index_sake do
+  link "日本酒一覧", brewer_items_path
+  parent :root
+end
 
-# crumb :show_sake do
-#   link "日本酒の詳細", item_path
-#   parent :index_sake
-# end
+crumb :show_sake do
+  link "日本酒の詳細", item_path
+  parent :index_sake
+end
 
 # crumb :projects do
 #   link "Projects", projects_path

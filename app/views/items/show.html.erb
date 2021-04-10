@@ -1,5 +1,5 @@
 <%= render "shared/header" %>
-
+<%= render_breadcrumbs separator: ' > ' ,class:"my-5"%>
 <div class="item-show">
   <div class="item-box col-sm-8 mx-auto border mb-3">
     <h1 class="card-header mx-auto text-center my-3 w-50 border">
@@ -63,7 +63,7 @@
                   <h5 class="card-title">タイトル：<%= review.title %></h5>
                   <p class="card-text">本文：<%= review.content %></p>
                   <p class="card-text"><%= review.created_at.strftime('%Y年%m月%d日') %> 投稿 by <%= review.user.nickname %> さん</p>
-                  <%= link_to "投稿を編集", edit_review_path(review.id) , class:"btn btn-primary"%>
+                  <%= link_to "投稿を編集", edit_review_path(review.id, review.item_id) , class:"btn btn-primary"%>
                 </div>
               </div>
             </div>
