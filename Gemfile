@@ -64,3 +64,7 @@ gem 'bootstrap-datetimepicker-rails'
 gem 'gretel'
 gem "breadcrumbs_on_rails"
 gem "aws-sdk-s3", require: false
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
