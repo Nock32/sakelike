@@ -59,9 +59,7 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-server '35.73.34.160', user: 'ec2-user', roles: %w{app db web}
-ssh_options: {
-  
+server '35.73.34.160', user: 'ec2-user', roles: %w{app db web},ssh_options: {
   user: "ec2-user", # overrides user setting above
   keys: %w(~/.ssh/konkon32.pem),
   forward_agent: true
