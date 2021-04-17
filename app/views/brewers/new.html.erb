@@ -1,56 +1,50 @@
+<%= render "shared/header_edit" %>
+<%= render_breadcrumbs separator: ' > ' %>
+
 <div class="brewers-regist-contents">
-  <header class="brewers-regist-header">
-    <%# <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %> 
-  </header>
 
-  <div class="brewers-regist-main">
-    <h2 class="brewers-regist-title">酒蔵の情報を入力</h2>
+  <div class="brewers-regist-main w-50 mx-auto text-center my-3">
+    <h2 class="brewers-regist-title">
+      酒蔵の登録
+    </h2>
+
     <%= form_with model: @brewer, url: brewers_path,local: true do |f| %>
-    
-    <%= render 'shared/error_messages', model: f.object %>
+      <%= render 'shared/error_messages', model: f.object %>
 
-    <div class="new-brewers">
-      
-      <div class="brewers-name">
-        <div class="weight-bold-text">
-          酒蔵名
-          <span class="indispensable">必須</span>
+      <table class="table" >
+          <tbody>
+            <tr>
+              <th scope="row" class = "border rounded bg-light fs-5 fw-bold">酒蔵名</th>
+              <td class = "border  rounded align-middle">
+                <%= f.text_field :name, class:"items-text form-control", id:"brewer-name", placeholder:"酒蔵名（必須 40文字まで)", maxlength:"40" %>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class = "border rounded bg-light fs-5 fw-bold">説明</th>
+              <td class = "border rounded align-middle">
+                <%= f.text_area :explanation, class:"items-text form-control", id:"brewer-info", placeholder:"酒蔵の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class = "border rounded bg-light fs-5 fw-bold">住所</th>
+              <td class = "border rounded align-middle">
+                <%= f.text_field :address, class:"items-text form-control", id:"brewer-info", placeholder:"住所（必須 40文字まで）" ,maxlength:"40" %>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class = "border rounded bg-light fs-5 fw-bold">酒蔵の地域</th>
+              <td class = "border rounded align-middle">
+                <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"brewer-area"}) %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="edit-btn-contents">
+          <%= f.submit "登録する" ,class:"form-submit btn btn-primary badge rounded-pill btn-lg w-50 fs-6 mx-auto d-flex justify-content-center mb-3" %>
+          <%=link_to 'もどる', brewers_path, class:"form-submit btn btn-secondary badge rounded-pill btn-lg w-50 fs-6 mx-auto d-flex justify-content-center mb-3" %>
         </div>
-        <%= f.text_area :name, class:"brewers-text", id:"brewer-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
-      </div>
-
-      <div class="brewers-explain">
-        <div class="weight-bold-text">
-          酒蔵の説明
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :explanation, class:"brewers-text", id:"item-info", placeholder:"日本酒の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
-      </div>
-
-      <div class="brewers-address">
-        <div class="weight-bold-text">
-          酒蔵の所在地
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :address, class:"brewers-text", id:"brewer-adress", placeholder:"住所（必須 40文字まで)", maxlength:"40" %>
-      </div>
-
-      <div class= "brewers-area">
-        <div class="weight-bold-text">
-          酒蔵の地域
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"brewer-area"}) %>
-      </div>
-
-    </div>
-
-    <div class="sell-btn-contents">
-      <%= f.submit "登録する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
-    </div>
-
+    <% end %>
   </div>
-  <% end %>
 
 </div>
+<%= render "shared/footer" %>

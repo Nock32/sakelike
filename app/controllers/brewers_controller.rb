@@ -13,6 +13,8 @@ class BrewersController < ApplicationController
 
   def new
     @brewer = Brewer.new
+    add_breadcrumb '酒蔵のデータベース' , root_path
+    add_breadcrumb '酒蔵の登録'
   end
 
   def show

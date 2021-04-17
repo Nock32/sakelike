@@ -1,50 +1,43 @@
-<div class="items-regist-contents">
-  <header class="items-regist-header">
-    <%# <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %> 
-  </header>
+<%= render "shared/header_edit" %>
+<%= render_breadcrumbs separator: ' > ' %>
 
-  <div class="items-regist-main">
-    <h2 class="items-regist-title">日本酒の情報を入力</h2>
+<div class="items-regist-contents">
+  <div class="items-regist-main w-50 mx-auto text-center">
+    <h2 class="items-regist-title">
+      日本酒を登録
+    </h2>
+
     <%= form_with model: [@brewer, @item],class: 'item-form', local: true do |f| %>
-    
       <%= render 'shared/error_messages', model: f.object %>
 
-      <div class="img-upload">
-        <div class="weight-bold-text">
-          日本酒の画像
-          <span class="indispensable">必須</span>
-        </div>
-        <div class="click-upload">
-          <p>
-            クリックしてファイルをアップロード
-          </p>
-          <%= f.file_field :image, id:"item-image" %>
-        </div>
-      </div>
-
-      <div class="new-items">
-        
-        <div class="items-name">
-          <div class="weight-bold-text">
-            日本酒名
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
-        </div>
-
-        <div class="items-explain">
-          <div class="weight-bold-text">
-            日本酒の説明
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.text_area :explanation, class:"items-text", id:"item-info", placeholder:"日本酒の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
-        </div>
-
-      </div>
-
-      <div class="-btn-contents">
-        <%= f.submit "登録する" ,class:"sell-btn" %>
-        <%=link_to 'もどる', root_path, class:"back-btn" %>
+        <table class="table" >
+        <tbody>
+          <tr>
+            <th scope="row" class = "border rounded bg-light fs-5 fw-bold ">日本酒の画像</th>
+            <td class = "border rounded  align-middle">
+              <p>
+                クリックしてファイルをアップロード
+              </p>
+              <%= f.file_field :image, id:"item-image "%>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class = "border  rounded  bg-light fs-5 fw-bold">日本酒名</th>
+            <td class = "border  rounded align-middle">
+              <%= f.text_field :name, class:"items-text form-control", id:"item-name", placeholder:"日本酒名（必須 40文字まで)", maxlength:"40" %>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class = "border   rounded bg-light fs-5 fw-bold">日本酒の説明</th>
+            <td class = "border  rounded align-middle">
+              <%= f.text_area :explanation, class:"items-text form-control", id:"item-info", placeholder:"日本酒の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="edit-btn-contents">
+        <%= f.submit "登録する" ,class:"form-submit btn btn-primary badge rounded-pill btn-lg w-50 fs-6 mx-auto d-flex justify-content-center mb-3" %>
+        <%=link_to 'もどる', brewer_path(@brewer.id), class:"form-submit btn btn-secondary badge rounded-pill btn-lg w-50 fs-6 mx-auto d-flex justify-content-center mb-3" %>
       </div>
     <% end %>
   </div>

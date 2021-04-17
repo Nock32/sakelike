@@ -14,6 +14,9 @@ class ItemsController < ApplicationController
 
   def new
     @brewer = Brewer.find(params[:brewer_id])
+    add_breadcrumb '酒蔵の情報', brewer_path(@brewer.id)
+    add_breadcrumb '日本酒のデータベース', brewer_items_path(@brewer.id)
+    add_breadcrumb '日本酒の登録'
     @item = Item.new
   end
 
