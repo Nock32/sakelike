@@ -66,7 +66,7 @@ class BrewersController < ApplicationController
   private
 
   def brewer_params
-    params.require(:brewer).permit(:name, :explanation, :address, :area_id).merge(user_id: current_user.id)
+    params.require(:brewer).permit(:name, :explanation, :address, :area_id, :image).merge(user_id: current_user.id)
   end
 
   def set_item

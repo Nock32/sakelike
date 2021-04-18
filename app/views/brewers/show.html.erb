@@ -58,10 +58,10 @@
               <%= link_to item_path(item.id) , class:"text-dark text-decoration-none" do %>
                 <div class="card m-3" style="max-width: 540px;">
                   <div class="row g-0">
-                    <div class="item-img-content col-md-4">
+                    <div class="item-img-content col-md-6">
                       <%= image_tag item.image.variant(resize: '250x250'), class: "item-img" %>
                     </div>
-                    <div class="col-md-8 bg-light">
+                    <div class="col-md-6 bg-light">
                       <div class="card-body ">
                         <h4 class="card-title "><%= item.name%></h4>
                         <p class="card-text">説明：<%= item.explanation %></p>

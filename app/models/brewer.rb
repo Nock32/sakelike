@@ -4,11 +4,11 @@ class Brewer < ApplicationRecord
   
   belongs_to :user
   has_many :items , dependent: :destroy
-  # has_one_attached :image
+  has_one_attached :image
 
 
   with_options presence: true do
-    # validates :image
+    validates :image
     validates :name, length: { maximum: 40, too_long: '商品名が長すぎます' } 
     validates :explanation, length: { maximum: 1000, too_long: '商品の説明文が長すぎます' }
     validates :address

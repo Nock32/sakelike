@@ -85,10 +85,10 @@
           <%= link_to brewer_path(brewer.id) , class:"text-dark text-decoration-none" do%>
             <div class="card m-3" style="max-width: 540px;">
               <div class="row g-0">
-                <div class="col-md-4">
-                  <img src="..." alt="...">
+                <div class="brewer-img-content col-md-6">
+                  <%= image_tag brewer.image.variant(resize: '250x250'), class: "item-img" if brewer.image.attached? %>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-6 bg-light">
                   <div class="card-body ">
                     <h4 class="card-title "><%= brewer.name%></h4>
                     <p class="card-text ">代表銘柄：</p>
