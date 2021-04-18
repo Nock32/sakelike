@@ -1,4 +1,4 @@
-# README
+# SAKELIKE
 
 ## usersテーブル
 |Column            |Type     |Options                 |
@@ -16,6 +16,8 @@
 - has_many :favorite
 - has_many :items
 - has_many :brewer
+
+
 
 ## itemsテーブル
 |Column              |Type      |Options          |
