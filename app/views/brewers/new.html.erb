@@ -12,7 +12,16 @@
       <%= render 'shared/error_messages', model: f.object %>
 
       <table class="table" >
-          <tbody>
+            <tbody>
+                      <tr>
+              <th scope="row" class = "border rounded bg-light fs-5 fw-bold ">酒蔵の画像</th>
+              <td class = "border rounded  align-middle">
+                <p>
+                  クリックしてファイルをアップロード
+                </p>
+                <%= f.file_field :image, id:"item-image "%>
+              </td>
+            </tr>
             <tr>
               <th scope="row" class = "border rounded bg-light fs-5 fw-bold">酒蔵名</th>
               <td class = "border  rounded align-middle">

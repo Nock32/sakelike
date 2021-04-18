@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
+ 
+  add_breadcrumb 'トップページ', :root_path
 
   def edit
   end
 
   def new
+    add_breadcrumb 'ログイン'
   end
 
   def update
