@@ -1,6 +1,7 @@
 # SAKELIKE
 
 ## サービス概要
+![Test Image 1](https://user-images.githubusercontent.com/74159284/115142093-c797ca00-a07a-11eb-9d98-caba0e1461a5.png "SAKELIKE")
 
 ## usersテーブル
 |Column            |Type     |Options                 |
