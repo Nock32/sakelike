@@ -13,7 +13,15 @@ MVCアーキテクチャの仕組みに従い、基本を意識した構成を�
 また、GitHubの機能を活用し、「branchを切る -> 開発を行う -> pushする -> pull requestを送信する -> mergeする」という流れでチーム開発を想定し開発を進めました。
 
 ## デプロイ先URL
-[EC2](http://35.73.34.160/ "SAKELIKE")
+[EC2デプロイ先リンク](http://35.73.34.160/ "SAKELIKE")
+
+* basic認証用ID/Pass
+  * ID: admin
+  * Pass: 2222
+* テストログインアカウント情報
+  * Email：a@ooooo.co.jp
+  * Password：aaa000
+
 ## 開発環境
 * Ruby 2.6.5
 * Rails 6.1.3.1
@@ -25,23 +33,14 @@ MVCアーキテクチャの仕組みに従い、基本を意識した構成を�
 * ユーザー登録＆ログイン：devise
 * Basic認証
 * デプロイプラットフォーム：AWS EC2
-* コードチェック：rubocop
-* 
-* 画像アップロード、保管：mini_magick,AWS S3
-* パンくずリスト：breadcrumbs on rails
 * 自動デプロイ：Capistrano
-* API：Googleマップ
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
+* コードチェック：R¥ubocop
+* 画像アップロード、保管：mini_magick,AWS S3
+* パンくずリスト：breadcrumbs_on_rails
+* テスト：RSpec
 
+
+# DB設計
 ## usersテーブル
 |Column            |Type     |Options                 |
 |----------------- |---------|------------------------|
@@ -58,8 +57,6 @@ MVCアーキテクチャの仕組みに従い、基本を意識した構成を�
 - has_many :favorite
 - has_many :items
 - has_many :brewer
-
-
 
 ## itemsテーブル
 |Column              |Type      |Options          |
