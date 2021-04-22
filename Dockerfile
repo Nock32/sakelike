@@ -17,3 +17,4 @@ ADD Gemfile.lock /SAKELIKE/Gemfile.lock
 RUN gem install bundler
 RUN bundle install
 ADD . /SAKELIKE
+RUN mkdir -p tmp/sockets
