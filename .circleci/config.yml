@@ -6,7 +6,7 @@ commands:
   setup:
     steps:
       - checkout
-          # path: ~/projects/sakelike
+          path: ~/projects/sakelike
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
@@ -45,7 +45,6 @@ jobs:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: ''
           MYSQL_DATABASE: sakelike_test
-          # MYSQL_USER: root
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
