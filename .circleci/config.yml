@@ -6,10 +6,9 @@ commands:
   setup:
     steps:
       - checkout
-          path: ~/projects/sakelike
       - ruby/install-deps
-      - node/install-packages:
-          pkg-manager: yarn
+      - node/install-packages
+          # pkg-manager: yarn
           # cache-key: "yarn.lock"
 
 jobs:
