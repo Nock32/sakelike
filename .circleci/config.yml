@@ -1,16 +1,16 @@
 version: 2.1
 orbs:
   ruby: circleci/ruby@1.1.2
-  # node: circleci/node@2.7
+  node: circleci/node@2.7
 commands:
   setup:
     steps:
       - checkout
           # path: ~/projects/sakelike
       - ruby/install-deps
-      # - node/install-packages:
-      #     pkg-manager: yarn
-      #     cache-key: "yarn.lock"
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
 
 jobs:
   build:
