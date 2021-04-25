@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   has_one_attached :image
   belongs_to :user
   belongs_to :brewer
-  has_many   :reviews, dependent: :destroy
+  has_many   :reviews, foreign_key: :item_id, dependent: :destroy
 
   with_options presence: true do
     validates :image
