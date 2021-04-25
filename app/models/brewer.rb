@@ -3,7 +3,7 @@ class Brewer < ApplicationRecord
   belongs_to :area
   
   belongs_to :user
-  has_many :items , dependent: :destroy
+  has_many :items, foreign_key: :brewer_id, dependent: :destroy
   has_one_attached :image
 
 
