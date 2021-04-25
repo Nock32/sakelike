@@ -55,9 +55,9 @@ jobs:
       - run:
           name: rails db:migrate
           command: bundle exec rails db:migrate
-      - run:
-          name: Database setup
-          command: bundle exec rails db:schema:load
+      # - run:
+      #     name: Database setup
+      #     command: bundle exec rails db:schema:load
       - run:
           name: Rubocop
           command: bundle exec rubocop -a
