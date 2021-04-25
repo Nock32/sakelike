@@ -14,7 +14,7 @@ commands:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.5
+      - image: circleci/ruby:2.6.6
         environment:
           - BUNDLER_VERSION: 2.1.4
     # working_directory: ~/projects/sakelike
@@ -38,7 +38,7 @@ jobs:
 
   test:
     docker:
-      - image: circleci/ruby:2.6.5
+      - image: circleci/ruby:2.6.6
       - image: circleci/mysql:5.6
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
@@ -60,7 +60,7 @@ jobs:
       #     command: bundle exec rails db:schema:load
       - run:
           name: Rubocop
-          command: bundle exec rubocop -a
+          command: bundle exec rubocop
       - run:
           name: Rspec
           command: |
