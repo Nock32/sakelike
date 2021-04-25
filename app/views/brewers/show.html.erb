@@ -22,7 +22,7 @@
             <%= link_to '酒蔵情報の編集', edit_brewer_path, method: :get, class: "item-red-btn btn btn-secondary text-light w-100 shadow"%>
           </div>
           <div class="w-100 shadow">
-            <%= link_to '酒蔵の登録削除', brewer_path, method: :get, class: "item-red-btn btn btn-danger text-light  w-100"%>
+            <%= link_to '酒蔵の登録削除', brewer_path, method: :delete, class: "item-red-btn btn btn-danger text-light  w-100"%>
           </div>
           <div class="w-100 shadow">
             <%= link_to "日本酒を登録", new_brewer_item_path(@brewer, ), class: "sake-regist btn btn-primary text-light  w-100" %>

@@ -63,7 +63,10 @@
                   <h5 class="card-title">タイトル：<%= review.title %></h5>
                   <p class="card-text">本文：<%= review.content %></p>
                   <p class="card-text"><%= review.created_at.strftime('%Y年%m月%d日') %> 投稿 by <%= review.user.nickname %> さん</p>
-                  <%= link_to "投稿を編集", edit_review_path(review.id, review.item_id) , class:"btn btn-primary"%>
+                  <%if current_user.id == @item.user_id %>
+                    <%= link_to "投稿を編集", edit_review_path(review.id, review.item_id) , class:"btn btn-primary"%>
+                    <%= link_to "投稿削除", review_path(review.id) , method: :delete, class:"btn btn-danger"%>
+                  <%end%>
                 </div>
               </div>
             </div>
@@ -71,29 +74,31 @@
         <% end %>
       </div>
 
-      <div class="comment-box my-3 border pt-3">
-        <%= form_with model: [@item, @review],url: item_reviews_path(@item.id), method: :post, class: 'form w-50 mx-auto mb-5', local: true do |f| %>
-          <div class="mb-3 ">
-            <h5 for="exampleInputEmail1" class="form-label mx-auto  text-center " >日本酒へのレビューを投稿する</h5>
-              <div class="form-input">
-                <span>タイトル</span>
-                <%= f.text_field :title, class: 'review-title form-control', placeholder: "レビュータイトル（必須 40文字まで)", maxlength:"40"  %>
+      <%if user_signed_in? %>
+        <div class="comment-box my-3 border pt-3">
+          <%= form_with model: [@item, @review],url: item_reviews_path(@item.id), method: :post, class: 'form w-50 mx-auto mb-5', local: true do |f| %>
+            <div class="mb-3 ">
+              <h5 for="exampleInputEmail1" class="form-label mx-auto  text-center " >日本酒へのレビューを投稿する</h5>
+                <div class="form-input">
+                  <span>タイトル</span>
+                  <%= f.text_field :title, class: 'review-title form-control', placeholder: "レビュータイトル（必須 40文字まで)", maxlength:"40"  %>
+                </div>
+                <div class="form-input">
+                  <span>レビュー本文</span>
+                  <%= f.text_area :content, class: 'review-text form-control', placeholder: "レビュー本文（必須 1000文字まで)", maxlength:"1000" ,rows:"7"  %>
+                </div>
+              <div id="emailHelp" class="form-text">
+                相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
               </div>
-              <div class="form-input">
-                <span>レビュー本文</span>
-                <%= f.text_area :content, class: 'review-text form-control', placeholder: "レビュー本文（必須 1000文字まで)", maxlength:"1000" ,rows:"7"  %>
-              </div>
-            <div id="emailHelp" class="form-text">
-              相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
             </div>
-          </div>
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">レビュー内容の確認</label>
-          </div>
-          <%= f.submit 'レビューを投稿', class: 'form-submit btn btn-primary badge rounded-pill btn-lg w-50 fs-4 mx-auto d-flex justify-content-center' , style:"line-height: 36px;" %>
-        <% end %>
-      </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">レビュー内容の確認</label>
+            </div>
+            <%= f.submit 'レビューを投稿', class: 'form-submit btn btn-primary badge rounded-pill btn-lg w-50 fs-4 mx-auto d-flex justify-content-center' , style:"line-height: 36px;" %>
+          <% end %>
+        </div>
+      <%end%>
     </div>
   </div>
   
