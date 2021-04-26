@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review_id, only:[:show, :edit, :update, :destroy]
+  before_action :set_review_id, only: [:show, :edit, :update, :destroy]
   add_breadcrumb 'トップページ', :root_path
 
   def index
@@ -13,14 +13,12 @@ class ReviewsController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     @review = @item.reviews.new(review_params)
-    if @review.save
-      redirect_to item_path(@item)
-    end
+    redirect_to item_path(@item) if @review.save
   end
-  
+
   def show
-    @user= User.find(@review.user_id)
-    @item= Item.find(@review.item_id)
+    @user = User.find(@review.user_id)
+    @item = Item.find(@review.item_id)
   end
 
   def edit
@@ -42,8 +40,8 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    if @review.destroy 
-    redirect_to item_path(@review.item_id)
+    if @review.destroy
+      redirect_to item_path(@review.item_id)
     else
       redirect_to root_path
     end
@@ -52,11 +50,10 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content,:title).merge(user_id: current_user.id)
+    params.require(:review).permit(:content, :title).merge(user_id: current_user.id)
   end
 
   def set_review_id
     @review = Review.find(params[:id])
   end
-
 end

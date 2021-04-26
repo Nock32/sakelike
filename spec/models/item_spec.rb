@@ -15,24 +15,24 @@ RSpec.describe Item, type: :model do
       it 'ユーザーが紐付いていないと保存できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include'Userを入力してください'
+        expect(@item.errors.full_messages).to include 'Userを入力してください'
       end
       it '酒蔵が紐付いていないと保存できない' do
         @item.brewer = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include'Brewerを入力してください'
+        expect(@item.errors.full_messages).to include 'Brewerを入力してください'
       end
 
       it 'imageが空だと登録できない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include "Imageを入力してください"
+        expect(@item.errors.full_messages).to include 'Imageを入力してください'
       end
 
       it 'nameが空だと登録できない' do
         @item.name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include "Nameを入力してください"
+        expect(@item.errors.full_messages).to include 'Nameを入力してください'
       end
 
       it 'nameの文字数が41文字以上だと登録できない' do
@@ -44,7 +44,7 @@ RSpec.describe Item, type: :model do
       it 'explanationが空では登録できない' do
         @item.explanation = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include "Explanationを入力してください"
+        expect(@item.errors.full_messages).to include 'Explanationを入力してください'
       end
 
       it 'explanationが1001文字以上では登録できない' do
@@ -52,7 +52,6 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include 'Explanation商品の説明文が長すぎます'
       end
-
     end
   end
 end

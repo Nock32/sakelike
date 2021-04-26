@@ -6,5 +6,4 @@ class Review < ApplicationRecord
     validates :title, length: { maximum: 40, too_long: 'が長すぎます' }
     validates :content, length: { maximum: 1000, too_long: 'が長すぎます' }
   end
-
 end

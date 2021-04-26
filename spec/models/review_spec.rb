@@ -15,18 +15,18 @@ RSpec.describe Review, type: :model do
       it 'ユーザーが紐付いていないと保存できない' do
         @review.user = nil
         @review.valid?
-        expect(@review.errors.full_messages).to include'Userを入力してください'
+        expect(@review.errors.full_messages).to include 'Userを入力してください'
       end
       it '日本酒の情報が紐付いていないと保存できない' do
         @review.item = nil
         @review.valid?
-        expect(@review.errors.full_messages).to include'Itemを入力してください'
+        expect(@review.errors.full_messages).to include 'Itemを入力してください'
       end
 
       it 'titleが空だと登録できない' do
         @review.title = nil
         @review.valid?
-        expect(@review.errors.full_messages).to include "Titleを入力してください"
+        expect(@review.errors.full_messages).to include 'Titleを入力してください'
       end
 
       it 'titleの文字数が41文字以上だと登録できない' do
@@ -38,7 +38,7 @@ RSpec.describe Review, type: :model do
       it 'contentが空では登録できない' do
         @review.content = nil
         @review.valid?
-        expect(@review.errors.full_messages).to include "Contentを入力してください"
+        expect(@review.errors.full_messages).to include 'Contentを入力してください'
       end
 
       it 'contentが1001文字以上では登録できない' do
@@ -46,7 +46,6 @@ RSpec.describe Review, type: :model do
         @review.valid?
         expect(@review.errors.full_messages).to include 'Contentが長すぎます'
       end
-
     end
   end
 end

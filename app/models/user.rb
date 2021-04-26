@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   has_many :items, foreign_key: :user_id, dependent: :destroy
   has_many :brewers, foreign_key: :user_id, dependent: :destroy
   has_many :reviews, foreign_key: :user_id, dependent: :destroy
@@ -25,6 +25,6 @@ class User < ApplicationRecord
     validates :birthday
 
     validates :password, length: { minimum: 6, message: 'は６文字以上入力してください' },
-                        format: { with: /[a-z]{1,}[0-9]{1,}/, message: 'は半角アルファベットと数字をそれぞれ１文字以上入力してください' }
+                         format: { with: /[a-z]{1,}[0-9]{1,}/, message: 'は半角アルファベットと数字をそれぞれ１文字以上入力してください' }
   end
 end
