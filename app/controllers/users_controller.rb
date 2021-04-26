@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
- 
   add_breadcrumb 'トップページ', :root_path
 
   def edit
@@ -15,12 +14,12 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :password, :password_confirmation,:family_name, :first_name, :family_name_kana, :first_name_kana,:birthday)
+    params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :family_name, :first_name,
+                                 :family_name_kana, :first_name_kana, :birthday)
   end
 end

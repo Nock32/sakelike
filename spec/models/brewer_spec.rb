@@ -15,19 +15,19 @@ RSpec.describe Brewer, type: :model do
       it 'ユーザーが紐付いていないと保存できない' do
         @brewer.user = nil
         @brewer.valid?
-        expect(@brewer.errors.full_messages).to include'Userを入力してください'
+        expect(@brewer.errors.full_messages).to include 'Userを入力してください'
       end
 
       it 'imageが空だと登録できない' do
         @brewer.image = nil
         @brewer.valid?
-        expect(@brewer.errors.full_messages).to include "Imageを入力してください"
+        expect(@brewer.errors.full_messages).to include 'Imageを入力してください'
       end
 
       it 'nameが空だと登録できない' do
         @brewer.name = nil
         @brewer.valid?
-        expect(@brewer.errors.full_messages).to include "Nameを入力してください"
+        expect(@brewer.errors.full_messages).to include 'Nameを入力してください'
       end
 
       it 'nameの文字数が41文字以上だと登録できない' do
@@ -39,7 +39,7 @@ RSpec.describe Brewer, type: :model do
       it 'explanationが空では登録できない' do
         @brewer.explanation = nil
         @brewer.valid?
-        expect(@brewer.errors.full_messages).to include "Explanationを入力してください"
+        expect(@brewer.errors.full_messages).to include 'Explanationを入力してください'
       end
 
       it 'explanationが1001文字以上では登録できない' do
@@ -50,7 +50,7 @@ RSpec.describe Brewer, type: :model do
       it 'addressが空では登録できない' do
         @brewer.address = nil
         @brewer.valid?
-        expect(@brewer.errors.full_messages).to include "Addressを入力してください"
+        expect(@brewer.errors.full_messages).to include 'Addressを入力してください'
       end
 
       it 'addressが41文字以上では登録できない' do
@@ -62,7 +62,7 @@ RSpec.describe Brewer, type: :model do
       it 'area_idが空では登録できない' do
         @brewer.area_id = nil
         @brewer.valid?
-        expect(@brewer.errors.full_messages).to include "Areaを入力してください"
+        expect(@brewer.errors.full_messages).to include 'Areaを入力してください'
       end
 
       it 'area_idが1では登録できない' do
@@ -70,7 +70,6 @@ RSpec.describe Brewer, type: :model do
         @brewer.valid?
         expect(@brewer.errors.full_messages).to include 'Areaは1以外の値にしてください'
       end
-
     end
   end
 end

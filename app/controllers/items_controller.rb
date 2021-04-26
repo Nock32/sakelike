@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item_id, only:[:show, :edit, :update, :destroy]
+  before_action :set_item_id, only: [:show, :edit, :update, :destroy]
 
   add_breadcrumb 'トップページ', :root_path
 
@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
     @brewer = Brewer.all
     @item = Item.all
     @item.includes(:brewer)
-    
   end
 
   def new
@@ -58,11 +57,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if current_user.id != @item.user_id
-    redirect_to root_path
-    end
-    if @item.destroy 
-    redirect_to brewer_path(@item.brewer_id)
+    redirect_to root_path if current_user.id != @item.user_id
+    if @item.destroy
+      redirect_to brewer_path(@item.brewer_id)
     else
       redirect_to root_path
     end
@@ -77,5 +74,4 @@ class ItemsController < ApplicationController
   def set_item_id
     @item = Item.find(params[:id])
   end
-
 end

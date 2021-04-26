@@ -1,5 +1,4 @@
 class BrewersController < ApplicationController
-
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
@@ -8,12 +7,11 @@ class BrewersController < ApplicationController
   def index
     @brewer = Brewer.all.order('created_at DESC')
     @brewer.includes(:brewer)
-
   end
 
   def new
     @brewer = Brewer.new
-    add_breadcrumb '酒蔵のデータベース' , root_path
+    add_breadcrumb '酒蔵のデータベース', root_path
     add_breadcrumb '酒蔵の登録'
   end
 
@@ -52,14 +50,12 @@ class BrewersController < ApplicationController
   end
 
   def destroy
-    if current_user.id != @brewer.user_id
-    redirect_to root_path
-    end
+    redirect_to root_path if current_user.id != @brewer.user_id
 
-    if @brewer.destroy 
-    redirect_to root_path
+    if @brewer.destroy
+      redirect_to root_path
     else
-    render :show
+      render :show
     end
   end
 
@@ -72,5 +68,4 @@ class BrewersController < ApplicationController
   def set_item
     @brewer = Brewer.find(params[:id])
   end
-
 end
