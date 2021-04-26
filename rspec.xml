@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="rspec" tests="22" skipped="0" failures="1" errors="0" time="0.619222" timestamp="2021-04-27T00:56:25+09:00" hostname="abedaisukenoMacBook-Air.local">
+<properties>
+<property name="seed" value="40424"/>
+</properties>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題がない場合 必要事項を入力すれば登録できる" file="./spec/models/user_spec.rb" time="0.304840"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 nicknameが空だと登録できない" file="./spec/models/user_spec.rb" time="0.015666"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 emailが空では登録できない" file="./spec/models/user_spec.rb" time="0.033477"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 emailに@がなければ登録できない" file="./spec/models/user_spec.rb" time="0.014784"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 同じemailは登録できない" file="./spec/models/user_spec.rb" time="0.040927"><failure message="expected [] to include &quot;Eメールはすでに存在します&quot;" type="RSpec::Expectations::ExpectationNotMetError">Failure/Error: expect(@user.errors.full_messages).to include &apos;Eメールはすでに存在します&apos;
+  expected [] to include &quot;Eメールはすでに存在します&quot;
+./spec/models/user_spec.rb:38:in `block (4 levels) in &lt;top (required)&gt;&apos;</failure></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 passwordが空では登録できない" file="./spec/models/user_spec.rb" time="0.011931"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 パスワードとパスワード（確認用）、値の一致しない場合は登録できない" file="./spec/models/user_spec.rb" time="0.011163"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 名字が空では登録できない" file="./spec/models/user_spec.rb" time="0.011876"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 名字がローマ字では登録できない" file="./spec/models/user_spec.rb" time="0.010823"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 名前が空では登録できない" file="./spec/models/user_spec.rb" time="0.012129"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 名前がローマ字では登録できない" file="./spec/models/user_spec.rb" time="0.011817"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 名字（カナ）が空では登録できない" file="./spec/models/user_spec.rb" time="0.011139"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 名字（カナ）にひらがな登録できない" file="./spec/models/user_spec.rb" time="0.011342"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 名字（カナ）にローマ字登録できない" file="./spec/models/user_spec.rb" time="0.011755"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 名前（カナ）が空では登録できない" file="./spec/models/user_spec.rb" time="0.012724"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 名前（カナ）にひらがなは登録できない" file="./spec/models/user_spec.rb" time="0.010440"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 名前（カナ）にローマ字は登録できない" file="./spec/models/user_spec.rb" time="0.011900"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 誕生日が空では登録できない" file="./spec/models/user_spec.rb" time="0.010563"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 passwordは半角ローマ字だけでは登録できない" file="./spec/models/user_spec.rb" time="0.012624"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 passwordは数字だけでは登録できない" file="./spec/models/user_spec.rb" time="0.014378"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 passwordは全角は登録できない" file="./spec/models/user_spec.rb" time="0.012870"></testcase>
+<testcase classname="spec.models.user_spec" name="User ユーザー新規登録 登録内容に問題ある場合 passwordは6文字以上でないと登録できない" file="./spec/models/user_spec.rb" time="0.013695"></testcase>
+</testsuite>
