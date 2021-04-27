@@ -77,27 +77,19 @@ jobs:
 
   # deploy:
   #   docker:
-  #     - image: circleci/ruby:2.6.5
+  #     - image: circleci/ruby:2.6.6
+  #       environment:
+  #         - BUNDLER_VERSION: 2.1.4
   #   steps:
-  #     - checkout
-  #     - setup_remote_docker:
-  #         version: 19.03.13
-  #     - heroku/install
-  #     - run:
-  #         name: heroku login
-  #         command: heroku container:login
-  #     - run:
-  #         name: push docker image
-  #         command: heroku container:push web -a $HEROKU_APP_NAME
-  #     - run:
-  #         name: release docker image
-  #         command: heroku container:release web -a $HEROKU_APP_NAME
-  #     - run:
-  #         name: database setup
-  #         command: heroku run bundle exec rake db:migrate RAILS_ENV=production -a $HEROKU_APP_NAME
+  #     - setup
+  #     - add_ssh_keys:
+  #         fingerprints: "01:6a:ab:78:3f:57:43:c7:64:8a:07:51:8c:44:50:3c"
+  #     - deploy:
+  #         name: Capistrano deploy
+  #         command: bundle exec cap production deploy
 
 workflows:
-  version: 2
+  version: 2.1
   build_test_and_deploy:
     jobs:
       - build
@@ -109,4 +101,4 @@ workflows:
       #       - test
       #     filters:
       #       branches:
-      #         only: main
+      #         only: master
