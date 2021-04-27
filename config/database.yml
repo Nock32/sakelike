@@ -58,3 +58,4 @@ production:
   database: sakelike_production
   username: sakelike
   password: <%= ENV['SAKELIKE_DATABASE_PASSWORD'] %>
+  host: localhost
