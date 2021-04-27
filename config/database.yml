@@ -60,6 +60,6 @@ production:
   username: root
   database: sakelike_production
   # username: sakelike
-  password: <%= ENV['SAKELIKE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   # host: localhost
   socket: /var/lib/mysql/mysql.sock
