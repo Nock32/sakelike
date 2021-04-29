@@ -75,19 +75,19 @@ jobs:
               --format progress \
               $TEST_FILES
 
-  # deploy:
-  #   docker:
-  #     - image: circleci/ruby:2.6.6
-  #       environment:
-  #         - BUNDLER_VERSION: 2.1.4
-  #   steps:
-  #     - setup
-  #     - add_ssh_keys:
-  #         fingerprints: 
-  #           - "92:7a:80:28:e0:86:b8:2e:3f:e6:1b:bf:be:57:a7:ae"
-  #     - deploy:
-  #         name: Capistrano deploy
-  #         command: bundle exec cap production deploy
+  deploy:
+    docker:
+      - image: circleci/ruby:2.6.6
+        environment:
+          - BUNDLER_VERSION: 2.1.4
+    steps:
+      - setup
+      - add_ssh_keys:
+          fingerprints: 
+            - "92:7a:80:28:e0:86:b8:2e:3f:e6:1b:bf:be:57:a7:ae"
+      - deploy:
+          name: Capistrano deploy
+          command: bundle exec cap production deploy
 
 workflows:
   version: 2.1
@@ -97,9 +97,9 @@ workflows:
       - test:
           requires:
             - build
-      # - deploy:
-      #     requires:
-      #       - test
-      #     filters:
-      #       branches:
-      #         only: master
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
