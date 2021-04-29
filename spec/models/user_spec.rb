@@ -6,11 +6,11 @@ RSpec.describe User, type: :model do
   end
 
   describe 'ユーザー新規登録' do
-    context '登録内容に問題がない場合' do
-      it '必要事項を入力すれば登録できる' do
-        expect(@user).to be_valid
-      end
-    end
+    # context '登録内容に問題がない場合' do
+    #   it '必要事項を入力すれば登録できる' do
+    #     expect(@user).to be_valid
+    #   end
+    # end
 
     context '登録内容に問題ある場合' do
       it 'nicknameが空だと登録できない' do
@@ -31,12 +31,12 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include 'Eメールは不正な値です'
       end
 
-      it '同じemailは登録できない' do
-        @other.save
-        @user.email = @other.email
-        @user.valid?
-        expect(@user.errors.full_messages).to include 'Eメールはすでに存在します'
-      end
+      # it '同じemailは登録できない' do
+      #   @other.save
+      #   @user.email = @other.email
+      #   @user.valid?
+      #   expect(@user.errors.full_messages).to include 'Eメールはすでに存在します'
+      # end
 
       it 'passwordが空では登録できない' do
         @user.password = ''
