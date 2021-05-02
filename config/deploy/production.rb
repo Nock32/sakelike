@@ -65,4 +65,5 @@ server '35.73.34.160', user: 'ec2-user', roles: %w{app db web},ssh_options: {
   forward_agent: true,
   auth_methods: %w(publickey)
 #     # password: "please use keys"
+
 }
