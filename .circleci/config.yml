@@ -87,7 +87,7 @@ jobs:
             - "92:7a:80:28:e0:86:b8:2e:3f:e6:1b:bf:be:57:a7:ae"
       - deploy:
           name: Capistrano deploy
-          command: bundle exec cap production deploy
+          command: bundle exec cap production deploy --trace
 
 workflows:
   version: 2.1
