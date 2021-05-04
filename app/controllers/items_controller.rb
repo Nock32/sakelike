@@ -9,6 +9,9 @@ class ItemsController < ApplicationController
     @brewer = Brewer.all
     @item = Item.all
     @item.includes(:brewer)
+
+    @q = Item.ransack(params[:q])
+    @item = @q.result
   end
 
   def new

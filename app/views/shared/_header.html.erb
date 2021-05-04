@@ -20,7 +20,7 @@
   <div class='nav  py-2 bg-dark d-flex border-bottom border-4'>
     <div class='logo text-center me-auto p-2 '>
       <h1 >
-        <%# <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 30px; height: 30px; opacity: 1;" xml:space="preserve">
+        <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 30px; height: 30px; opacity: 1;" xml:space="preserve">
           <style type="text/css">
             .st0{fill:#4B4B4B;}
           </style>
@@ -33,7 +33,7 @@
             <path class="st0" d="M286.929,361.244v25.597c0,35.62,19.838,66.599,49.07,82.505v28.427H425.6v-28.427
               c29.228-15.906,49.065-46.885,49.065-82.505v-25.597H286.929z" style="fill: rgb(75, 75, 75);"></path>
           </g>
-        </svg> %>
+        </svg>
         <%= link_to 'SAKE LIKE', "/", class:"text-decoration-none text-light "%>
       </h1>
     </div>
@@ -99,7 +99,7 @@
           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
         </svg>
         <%if current_page?(root_path) %>
-         <a href="#brewer-data" class="text-decoration-none text-light">蔵元のデータベース</a>
+          <a href="#brewer-data" class="text-decoration-none text-light">蔵元のデータベース</a>
         <% else %>
           <%= link_to '蔵元のデータベース', root_path  , class:"text-decoration-none text-light" %>
         <%end%>
@@ -120,16 +120,18 @@
     </li>
   </ul>
   <nav class="navbar navbar-light bg-light">
-  <form class="container-fluid">
+  <%# <form class="container-fluid">
     <div class="input-group">
-      <button type="button" class="btn btn-secondary input-group-text"  data-toggle="tooltip" title="検索する" id="calendar">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-text-fill" viewBox="0 0 16 16">
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-        </svg>
-      </button>
-      <input type="text" class="form-control" placeholder="日本酒や酒蔵を検索" aria-label="Username" aria-describedby="basic-addon1">
-    </div>
-  </form>
+      <%= search_form_for @q do |f| %>
+        <%# <% f.label :name_cont %>
+        <%# <%= f.search_field :name_cont , class: "form-control " , placeholder: "地名や店名などを入力..." %>
+        <%# <div class="actions" data-toggle="tooltip" title="検索する"> %>
+          <%# <%= f.submit "検索", class: "btn btn-secondary input-group-text"  %>
+        <%# </div> %>
+      <%# <%end%>
+
+    <%# </div> %>
+  <%# </form> %>
 </nav>
 </header>
 <script>$('[data-toggle="tooltip"]').tooltip()</script>

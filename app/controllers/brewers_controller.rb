@@ -7,6 +7,11 @@ class BrewersController < ApplicationController
   def index
     @brewer = Brewer.all.order('created_at DESC')
     @brewer.includes(:brewer)
+
+    @q = Brewer.ransack(params[:q])
+    @brewer = @q.result(distinct: true).order(created_at: :desc)
+    # binding.pry
+    # .page(params[:page]).order(created_at: :desc)
   end
 
   def new

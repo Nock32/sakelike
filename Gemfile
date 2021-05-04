@@ -74,9 +74,9 @@ gem 'bootstrap-datetimepicker-rails'
 gem 'gretel'
 gem "breadcrumbs_on_rails"
 gem "aws-sdk-s3", require: false
-# gem 'therubyracer'
 gem 'mini_racer'
-
+gem 'ransack'
+gem 'font-awesome-sass'
 group :production do
   gem 'unicorn', '5.4.1'
 end
