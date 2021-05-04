@@ -1,0 +1,14 @@
+<form class="card border-none shadow-sm mb-3 mx-3">
+  <div class="card-header font-weight-bold">
+    フリーワードから探す
+  </div>
+  <div class="input-group card-body p-4">
+    <%= search_form_for @q do |f| %>
+      <% f.label :name_cont %>
+      <%= f.search_field :name_cont , class: "form-control " , placeholder: "酒蔵名を入力..." %>
+      <div class="actions" data-toggle="tooltip" title="検索する">
+        <%= f.submit "検索", class: "btn btn-secondary input-group-text"  %>
+      </div>
+    <%end%>
+  </div>
+</form>
