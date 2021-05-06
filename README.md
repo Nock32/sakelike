@@ -3,7 +3,7 @@
 [![CircleCI](https://circleci.com/gh/Nock32/sakelike.svg?style=shield)](https://app.circleci.com/pipelines/github/Nock32/sakelike)
 
 ## サービスの概要
-![Test Image 1](https://user-images.githubusercontent.com/74159284/115142093-c797ca00-a07a-11eb-9d98-caba0e1461a5.png "SAKELIKE")
+![Test Image 1](https://user-images.githubusercontent.com/74159284/117315840-07f0a800-aec3-11eb-9ce7-82eba241bbaf.png "SAKELIKE")
 
 日本酒ほど、生産地の米や麹、熟成、火入れにより様々な味わいを表現できる酒はそう無いと思います。それぞれの酒蔵によって異なる日本酒の中からそれぞれの人が求める最高の日本酒を見つけられるように、という思いで開発しました。
 
