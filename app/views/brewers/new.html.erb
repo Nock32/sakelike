@@ -5,7 +5,7 @@
 
   <div class="brewers-regist-main w-50 mx-auto text-center my-3">
     <h2 class="brewers-regist-title">
-      酒蔵の登録
+      蔵元の登録
     </h2>
 
     <%= form_with model: @brewer, url: brewers_path,local: true do |f| %>
@@ -14,7 +14,7 @@
       <table class="table" >
             <tbody>
                       <tr>
-              <th scope="row" class = "border rounded bg-light fs-5 fw-bold ">酒蔵の画像</th>
+              <th scope="row" class = "border rounded bg-light fs-5 fw-bold ">蔵元の画像</th>
               <td class = "border rounded  align-middle">
                 <p>
                   クリックしてファイルをアップロード
@@ -23,15 +23,15 @@
               </td>
             </tr>
             <tr>
-              <th scope="row" class = "border rounded bg-light fs-5 fw-bold">酒蔵名</th>
+              <th scope="row" class = "border rounded bg-light fs-5 fw-bold">蔵元名</th>
               <td class = "border  rounded align-middle">
-                <%= f.text_field :name, class:"items-text form-control", id:"brewer-name", placeholder:"酒蔵名（必須 40文字まで)", maxlength:"40" %>
+                <%= f.text_field :name, class:"items-text form-control", id:"brewer-name", placeholder:"蔵元名（必須 40文字まで)", maxlength:"40" %>
               </td>
             </tr>
             <tr>
               <th scope="row" class = "border rounded bg-light fs-5 fw-bold">説明</th>
               <td class = "border rounded align-middle">
-                <%= f.text_area :explanation, class:"items-text form-control", id:"brewer-info", placeholder:"酒蔵の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+                <%= f.text_area :explanation, class:"items-text form-control", id:"brewer-info", placeholder:"蔵元の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
               </td>
             </tr>
             <tr>
@@ -41,7 +41,7 @@
               </td>
             </tr>
             <tr>
-              <th scope="row" class = "border rounded bg-light fs-5 fw-bold">酒蔵の地域</th>
+              <th scope="row" class = "border rounded bg-light fs-5 fw-bold">蔵元の地域</th>
               <td class = "border rounded align-middle">
                 <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"brewer-area"}) %>
               </td>

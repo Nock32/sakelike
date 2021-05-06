@@ -5,7 +5,7 @@
   <div class="input-group card-body p-4">
     <%= search_form_for @q do |f| %>
       <% f.label :name_cont %>
-      <%= f.search_field :name_cont , class: "form-control " , placeholder: "酒蔵名を入力..." %>
+      <%= f.search_field :name_cont , class: "form-control " , placeholder: "蔵元名を入力..." %>
       <div class="actions" data-toggle="tooltip" title="検索する">
         <%= f.submit "検索", class: "btn btn-secondary input-group-text"  %>
       </div>
