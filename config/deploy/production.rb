@@ -62,7 +62,7 @@
 #   }
 server '35.73.34.160', user: 'ec2-user', roles: %w{app db web},ssh_options: {
   user: "ec2-user", # overrides user setting above
-  keys: %w(~/.ssh/konkon32.pem),
+  keys: %w(~/.ssh/id_rsa_927a8028e086b82e3fe61bbfbe57a7ae),
   forward_agent: true,
   auth_methods: %w(publickey)
 #     # password: "please use keys"
