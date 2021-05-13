@@ -77,6 +77,9 @@ gem "aws-sdk-s3", require: false
 gem 'mini_racer'
 gem 'ransack'
 gem 'font-awesome-sass'
+gem 'will_paginate',           '3.3.0'
+gem 'bootstrap-will_paginate', '1.0.0'
+gem 'will_paginate-bootstrap4'
 group :production do
   gem 'unicorn', '5.4.1'
 end

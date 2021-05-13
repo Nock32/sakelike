@@ -54,6 +54,7 @@
       <div class="card-header font-weight-bold fs-5 fw-bold border text-center">
         この日本酒のレビュー
       </div>
+      <%= will_paginate @review,list_classes: %w(pagination justify-content-center)%>
       <div class="review-lists border  pt-3 d-flex align-items-center flex-column">
         <% @review.each do |review| %>
           <%= link_to review_path(review.id) , class:"text-dark text-decoration-none " do %>
@@ -73,7 +74,7 @@
           <% end %>
         <% end %>
       </div>
-
+      <%= will_paginate @review,list_classes: %w(pagination justify-content-center)%>
       <%if user_signed_in? %>
         <div class="comment-box my-3 border pt-3">
           <%= form_with model: [@item, @review],url: item_reviews_path(@item.id), method: :post, class: 'form w-50 mx-auto mb-5', local: true do |f| %>

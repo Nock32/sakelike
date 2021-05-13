@@ -5,13 +5,11 @@ class BrewersController < ApplicationController
   add_breadcrumb 'トップページ', :root_path
 
   def index
-    @brewer = Brewer.all.order('created_at DESC')
-    @brewer.includes(:brewer)
-
+    @brewers = Brewer.all.order('created_at DESC')
+    @brewers.includes(:brewer)
     @q = Brewer.ransack(params[:q])
     @brewer = @q.result(distinct: true).order(created_at: :desc)
-    # binding.pry
-    # .page(params[:page]).order(created_at: :desc)
+    @brewers = Brewer.paginate(page: params[:page], per_page: 4).order("created_at DESC")
   end
 
   def new
@@ -24,7 +22,7 @@ class BrewersController < ApplicationController
     add_breadcrumb '酒蔵の詳細'
     @brewer = Brewer.find(params[:id])
     @item = @brewer.items
-    # @item.includes(:item)
+    @item.includes(:item)
   end
 
   def create

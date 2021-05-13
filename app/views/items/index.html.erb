@@ -5,26 +5,28 @@
   <div class= 'item-lists mx-3' >
     <div class="card">
       <h3 class="card-header">日本酒一覧</h3>
-      <div class="card-body d-flex row row-cols-2">
-        <% @item.each do |item| %>
-          <%= link_to item_path(item.id) , class:"text-dark text-decoration-none" do %>
-            <div class="card m-3" style="max-width: 540px;">
-              <div class="row g-0">
-                <div class="item-img-content col-md-4">
-                  <%= image_tag item.image.variant(resize: '250x250'), class: "item-img" %>
-                </div>
-                <div class="col-md-8 bg-light">
-                  <div class="card-body ">
-                    <h4 class="card-title "><%= item.name%></h4>
-                    <p class="card-text">日本酒の説明：<%= item.explanation %></p>
-                    <p class="card-text">酒蔵名：<%= item.explanation %></p>
+      <%= will_paginate @item,list_classes: %w(pagination justify-content-center)%>
+        <div class="card-body d-flex row row-cols-2">
+          <% @item.each do |item| %>
+            <%= link_to item_path(item.id) , class:"text-dark text-decoration-none" do %>
+              <div class="card m-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="item-img-content col-md-4">
+                    <%= image_tag item.image.variant(resize: '250x250'), class: "item-img" %>
+                  </div>
+                  <div class="col-md-8 bg-light">
+                    <div class="card-body ">
+                      <h4 class="card-title "><%= item.name%></h4>
+                      <p class="card-text">日本酒の説明：<%= item.explanation %></p>
+                      <p class="card-text">酒蔵名：<%= item.explanation %></p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <%= will_paginate @item,list_classes: %w(pagination justify-content-center)%>
     </div>
   </div>
 </div>
