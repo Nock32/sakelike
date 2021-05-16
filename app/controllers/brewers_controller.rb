@@ -9,7 +9,7 @@ class BrewersController < ApplicationController
     @brewers.includes(:brewer)
     @q = Brewer.ransack(params[:q])
     @brewer = @q.result(distinct: true).order(created_at: :desc)
-    @brewers = Brewer.paginate(page: params[:page], per_page: 4).order("created_at DESC")
+    @brewers = Brewer.paginate(page: params[:page], per_page: 4).order('created_at DESC')
   end
 
   def new
