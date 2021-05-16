@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     @item.includes(:brewer)
     @q = Item.ransack(params[:q])
     @item = @q.result
-    # @item = Item.paginate(page: params[:page], per_page: 4).order('created_at DESC')
+    @item = Item.paginate(page: params[:page], per_page: 4).order('created_at DESC')
   end
 
   def new
@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
     @review = Review.new
     @brewer = Brewer.all
     @review = @item.reviews
-    # @review = Review.paginate(page: params[:page], per_page: 4).order('created_at DESC')
+    @review = Review.paginate(page: params[:page], per_page: 4).order('created_at DESC')
   end
 
   def edit

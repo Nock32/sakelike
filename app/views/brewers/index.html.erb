@@ -81,7 +81,7 @@
   <div class= 'brewer-lists mx-3' >
     <div class="card">
       <h3 class="card-header">蔵元データ一覧</h3>
-      <%# <%= will_paginate @brewers,list_classes: %w(pagination justify-content-center)%> 
+      <%= will_paginate @brewers,list_classes: %w(pagination justify-content-center)%>
         <div class="card-body d-flex row row-cols-2">
           <% @brewers.each do |brewer| %>
             <%= link_to brewer_path(brewer.id) , class:"text-dark text-decoration-none" do%>
@@ -102,7 +102,7 @@
             <% end %>
           <% end %>
         </div>
-      <%# <%= will_paginate @brewers,list_classes: %w(pagination justify-content-center)%> 
+      <%= will_paginate @brewers,list_classes: %w(pagination justify-content-center)%>
     </div>
   </div>
 </div>
