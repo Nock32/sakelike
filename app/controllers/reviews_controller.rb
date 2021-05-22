@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     @review = @item.reviews.new(review_params)
-    render json:{ post: @review }
+    render json: { post: @review }
     @review.save
   end
 
