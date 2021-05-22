@@ -54,37 +54,40 @@
       <div class="card-header font-weight-bold fs-5 fw-bold border text-center">
         この日本酒のレビュー
       </div>
-      <div class="review-lists border  pt-3 d-flex align-items-center flex-column">
-      <%= will_paginate @review,list_classes: %w(pagination justify-content-center)%>
+      <div class="review-lists border  pt-3 d-flex align-items-center flex-column" id="item-review-list" style="overflow:scroll;">
+      <%# <%= will_paginate @review,list_classes: %w(pagination justify-content-center)%> 
         <% @review.each do |review| %>
-            <div class="col-sm-10 mb-3">
-              <div class="card">
-                <div class="card-body text-dark">
-                  <h5 class="card-title">タイトル：<%= review.title %></h5>
-                  <p class="card-text">本文：<%= review.content %></p>
-                  <p class="card-text"><%= review.created_at.strftime('%Y年%m月%d日') %> 投稿 by <%= review.user.nickname %> さん</p>
-                  <%if current_user.id == @item.user_id %>
-                    <%= link_to "投稿を編集", edit_review_path(review.id, review.item_id) , class:"btn btn-primary"%>
-                    <%= link_to "投稿削除", review_path(review.id) , method: :delete, class:"btn btn-danger"%>
-                  <%end%>
-                </div>
+          <div class="col-sm-10 mb-3">
+            <div class="card">
+              <div class="card-body text-dark">
+                <h5 class="card-title">タイトル：<%= review.title %></h5>
+                <p class="card-text">本文：<%= review.content %></p>
+                <p class="card-text"><%= review.created_at.strftime('%Y年%m月%d日') %> 投稿 by <%= review.user.nickname %> さん</p>
+                <%if current_user.id == @item.user_id %>
+                  <%= link_to "投稿を編集", edit_review_path(review.id, review.item_id) , class:"btn btn-primary"%>
+                  <%= link_to "投稿削除", review_path(review.id) , method: :delete, class:"btn btn-danger"%>
+                <%end%>
               </div>
             </div>
+          </div>
         <% end %>
       <%= will_paginate @review,list_classes: %w(pagination justify-content-center)%>
       </div>
       <%if user_signed_in? %>
         <div class="comment-box my-3 border pt-3">
-          <%= form_with model: [@item, @review],url: item_reviews_path(@item.id), method: :post, class: 'form w-50 mx-auto mb-5', local: true do |f| %>
+          <%= form_with model: [@item, @review],url: item_reviews_path(@item.id), method: :post, class: 'form w-50 mx-auto mb-5', item_id: '@item.id' ,local: true ,id: "item-review-form" do |f| %>
+          <div item-id ="<%= @item.id %>" id = 'id-data'>
+          <div nickname-data ="<%= @item.user.nickname %>" id = 'user-name'>
+          </div>
             <div class="mb-3 ">
               <h5 for="exampleInputEmail1" class="form-label mx-auto  text-center " >日本酒へのレビューを投稿する</h5>
                 <div class="form-input">
                   <span>タイトル</span>
-                  <%= f.text_field :title, class: 'review-title form-control', placeholder: "レビュータイトル（必須 40文字まで)", maxlength:"40"  %>
+                  <%= f.text_field :title, class: 'review-title form-control', placeholder: "レビュータイトル（必須 40文字まで)", maxlength:"40" , id: "item-title"%>
                 </div>
                 <div class="form-input">
                   <span>レビュー本文</span>
-                  <%= f.text_area :content, class: 'review-text form-control', placeholder: "レビュー本文（必須 1000文字まで)", maxlength:"1000" ,rows:"7"  %>
+                  <%= f.text_area :content, class: 'review-text form-control', placeholder: "レビュー本文（必須 1000文字まで)", maxlength:"1000" ,rows:"7" , id: "item-content"%>
                 </div>
               <div id="emailHelp" class="form-text">
                 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -94,7 +97,7 @@
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">レビュー内容の確認</label>
             </div>
-            <%= f.submit 'レビューを投稿', class: 'form-submit btn btn-primary badge rounded-pill btn-lg w-50 fs-4 mx-auto d-flex justify-content-center' , style:"line-height: 36px;" %>
+            <%= f.submit 'レビューを投稿', class: 'form-submit btn btn-primary badge rounded-pill btn-lg w-50 fs-4 mx-auto d-flex justify-content-center' , style:"line-height: 36px;" ,id:'submit-item-review'%>
           <% end %>
         </div>
       <%end%>

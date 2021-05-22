@@ -13,7 +13,8 @@ class ReviewsController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     @review = @item.reviews.new(review_params)
-    redirect_to item_path(@item) if @review.save
+    render json:{ post: @review }
+    @review.save
   end
 
   def show
